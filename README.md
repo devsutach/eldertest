@@ -8,7 +8,7 @@ What it covers:
 - numerical reasoning;
 - pattern reasoning;
 - working memory (digit span);
-- processing speed (a 90-second coding task).
+- processing speed (a 90-second written coding task).
 
 > **This is not a clinical or diagnostic test.** It has no population norms. The tester guide explains its limits and how to read the results. If you are worried about someone's memory or thinking, see a doctor. **This repo contains the answer key, so keep it private.**
 
@@ -25,7 +25,7 @@ Each language set has the same four files:
 
 | File | What it is | Print |
 |---|---|---|
-| `1-test-booklet.html` | The test itself: 4 practice items, 45 questions and a timed coding task | One per person |
+| `1-test-booklet.html` | The test itself: 4 practice items, 45 questions, and a timed written coding task (108 boxes, 90 s) | One per person |
 | `2-tester-guide.html` | Scripts, answer key, digit span, how to compare and interpret | One, for the tester |
 | `3-record-form.html` | Scoring sheet (shows the key) | One per person |
 | `4-comparison-summary.html` | Everyone's scores on one landscape sheet | One |

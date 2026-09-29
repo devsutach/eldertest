@@ -75,11 +75,12 @@ S = {
                "ถ้าไม่แน่ใจ ให้เลือกข้อที่คิดว่าใกล้เคียงที่สุด <b>อย่าเว้นว่าง</b>",
                "ใช้กระดาษทดได้ <b>ห้ามใช้เครื่องคิดเลขหรือโทรศัพท์</b>",
                "โจทย์แบบ <b>“นก : บิน = ปลา : ?”</b> หมายถึง นกคู่กับบินแบบไหน ปลาก็คู่กับอะไรแบบเดียวกัน"],
-        part4=("ส่วนที่ 4", "ความเร็วในการจับคู่", "จับเวลา 90 วินาที"),
+        part4=("ส่วนที่ 4", "ความเร็วในการจับคู่ (เขียน)", "จับเวลา 90 วินาที"),
         practice_h=("ตัวอย่าง", "ไม่นับคะแนน · ถามผู้ดูแลได้"),
-        code_how=("<b>วิธีทำ:</b> ตารางรหัสบอกว่ารูปแต่ละรูปคู่กับตัวเลขอะไร ให้<b>พูดตัวเลข</b>ของรูปแต่ละรูปออกมา เรียงจากซ้ายไปขวา ทีละแถว "
-                  "ให้<b>เร็วและถูกต้องที่สุด</b> ผู้ดูแลจะคอยตรวจตาม ถ้าพูดผิดให้พูดแก้ได้เลย <b>ห้ามข้ามตัวใด</b>"),
-        code_key="ตารางรหัส", code_prac="<b>แถวฝึก</b> (ไม่จับเวลา) ทำกับผู้ดูแลก่อน",
+        code_how=("<b>วิธีทำ:</b> ตารางรหัสบอกว่ารูปแต่ละรูปคู่กับตัวเลขอะไร ให้<b>เขียนตัวเลข</b>ของรูปนั้นลงในช่องว่างใต้รูป "
+                  "เรียงจากซ้ายไปขวา ทีละแถว ให้<b>เร็วและถูกต้องที่สุด</b> <b>ห้ามข้ามช่อง</b> "
+                  "ถ้าเขียนผิดไม่ต้องลบ ให้เขียนตัวที่ถูกไว้ข้างๆ"),
+        code_key="ตารางรหัส", code_prac="<b>แถวฝึก</b> (ไม่จับเวลา) ช่องแรกเขียนให้ดูเป็นตัวอย่างแล้ว ทำช่องที่เหลือกับผู้ดูแล",
         code_turn="เมื่อพร้อมแล้ว พลิกไปหน้าถัดไป แล้วรอผู้ดูแลบอก <b>“เริ่ม”</b>",
         code_start=("ส่วนที่ 4", "ความเร็วในการจับคู่ (จับเวลา)", "90 วินาที"), end="จบแบบทดสอบ ขอบคุณที่ช่วยทำ",
         tb_booklet="แบบทดสอบ (สำหรับผู้ทำแบบทดสอบ) · พิมพ์ขนาด A4 · Scale 100%",
@@ -96,12 +97,12 @@ S = {
                "If you are not sure, make your best guess. <b>Don’t leave any question blank.</b>",
                "You may use scrap paper. <b>No calculators or phones.</b>",
                "A question like <b>“bird : fly = fish : ?”</b> means: find the word that relates to “fish” in the same way that “fly” relates to “bird”."],
-        part4=("Part 4", "Matching speed", "Timed: 90 seconds"),
+        part4=("Part 4", "Matching speed (writing)", "Timed: 90 seconds"),
         practice_h=("Practice questions", "Not scored · you may ask the tester for help"),
-        code_how=("<b>How to do it:</b> The key shows which number goes with each shape. <b>Say the number</b> for each shape out loud, "
-                  "from left to right, row by row, as <b>quickly and accurately as you can</b>. The tester will follow along and mark your answers. "
-                  "If you make a mistake, just correct yourself. <b>Don’t skip any.</b>"),
-        code_key="Key", code_prac="<b>Practice row</b> (not timed) — do this with the tester first",
+        code_how=("<b>How to do it:</b> The key shows which number goes with each shape. In the empty box under each shape, "
+                  "<b>write the number</b> that goes with it. Work from left to right, row by row, as <b>quickly and accurately as you can</b>. "
+                  "<b>Don’t skip any boxes.</b> If you make a mistake, don’t rub it out; just write the correct number next to it."),
+        code_key="Key", code_prac="<b>Practice row</b> (not timed). The first box is done for you. Do the rest with the tester.",
         code_turn="When you are ready, turn to the next page and wait for the tester to say <b>“Start”</b>.",
         code_start=("Part 4", "Matching speed (timed)", "90 seconds"), end="End of the test. Thank you!",
         tb_booklet="Test booklet (for the person taking the test) · Print on A4 · Scale 100%",
@@ -158,7 +159,7 @@ ol.opts.c4{display:grid;grid-template-columns:repeat(4,1fr);column-gap:6mm}
 .popt svg{max-width:100%}
 .iconlab{font-size:14pt}
 .code-key{margin:2mm 0 5mm}
-.endnote{text-align:center;font-weight:700;margin-top:10mm}
+.endnote{text-align:center;font-weight:700;margin-top:4mm}
 @media screen and (max-width:760px){ol.opts.c2{grid-template-columns:1fr} .popts.c2{grid-template-columns:1fr} ol.opts{padding-left:0} .fig,.popts{margin-left:0}}
 """
 
@@ -207,23 +208,31 @@ def code_key_svg(mm=118):
     return svg(6 * W, 110, body, mm)
 
 
-def code_row_svg(digits, W=50, mm=180):
+SYM_H, BOX_H, ROW_GAP, CELL_W = 38, 44, 8, 50
+
+
+def write_cells(digits, y0=0, prefill=None):
+    """One row of written-coding cells: shape on top, empty writing box below."""
     body = ""
     for i, d in enumerate(digits):
-        x = i * W
-        body += cell_frame(x + 1, 1, W - 2, W - 2) + shape(C.CODE_SYMS[d - 1], x + W / 2, W / 2, 13.5)
-    return svg(len(digits) * W, W, body, mm)
+        x = i * CELL_W
+        body += cell_frame(x + 1, y0 + 1, CELL_W - 2, SYM_H - 1) + shape(C.CODE_SYMS[d - 1], x + CELL_W / 2, y0 + SYM_H / 2 + 1, 11.5)
+        body += (f'<rect x="{x + 1}" y="{y0 + SYM_H}" width="{CELL_W - 2}" height="{BOX_H - 1}" fill="#fff" '
+                 f'stroke="#111" stroke-width="2.2"/>')
+        if prefill is not None and i == 0:
+            body += text(x + CELL_W / 2, y0 + SYM_H + BOX_H * 0.72, str(prefill), size=30, weight=400, fill="#666")
+    return body
 
 
-def code_grid_svg():
-    W, gap = 50, 9
-    body = ""
-    for r, row in enumerate(C.CODE_ROWS):
-        y = r * (W + gap)
-        for i, d in enumerate(row):
-            x = i * W
-            body += cell_frame(x + 1, y + 1, W - 2, W - 2) + shape(C.CODE_SYMS[d - 1], x + W / 2, y + W / 2, 13.5)
-    return svg(12 * W, len(C.CODE_ROWS) * (W + gap) - gap, body, 163)
+def code_practice_svg(mm=100):
+    d = C.CODE_PRACTICE
+    return svg(len(d) * CELL_W, SYM_H + BOX_H, write_cells(d, prefill=d[0]), mm)
+
+
+def code_grid_svg(mm=156):
+    body = "".join(write_cells(row, r * (SYM_H + BOX_H + ROW_GAP)) for r, row in enumerate(C.CODE_ROWS))
+    n = len(C.CODE_ROWS)
+    return svg(12 * CELL_W, n * (SYM_H + BOX_H + ROW_GAP) - ROW_GAP, body, mm)
 
 
 def items_html(items, lang, LET):
@@ -259,10 +268,10 @@ def build_booklet(lang):
     p4, st = s["part4"], s["code_start"]
     code = (f'<section class="pb"><div class="sechead"><h2>{p4[0]} &nbsp;{p4[1]}</h2><span>{p4[2]}</span></div>'
             f'<p>{s["code_how"]}</p><div class="code-key"><b>{s["code_key"]}</b>{code_key_svg()}</div>'
-            f'<p style="margin:0 0 1mm">{s["code_prac"]}</p>{code_row_svg(C.CODE_PRACTICE, mm=96)}'
+            f'<p style="margin:0 0 1mm">{s["code_prac"]}</p>{code_practice_svg()}'
             f'<p style="margin:8mm 0 0">{s["code_turn"]}</p></section>'
             f'<section class="pb"><div class="sechead"><h2>{st[0]} &nbsp;{st[1]}</h2><span>{st[2]}</span></div>'
-            f'<div class="code-key" style="margin:0 0 4mm">{code_key_svg(mm=92)}</div>{code_grid_svg()}'
+            f'<div class="code-key" style="margin:0 0 3mm">{code_key_svg(mm=78)}</div>{code_grid_svg()}'
             f'<div class="endnote">{s["end"]}</div></section>')
     css = BOOKLET_CSS.replace("__FOOT__", s["foot"])
     return page(s["title"], cover + practice + secs + code, css, s["tb_booklet"], lang)
@@ -363,10 +372,11 @@ FORM_S = {
         ds_f="การจำตัวเลข — ไปข้างหน้า (คะแนน = ความยาวมากที่สุดที่ถูก): ______",
         ds_b="การจำตัวเลข — ย้อนกลับ (ฝึก 5-1 → 1-5; คะแนน = ความยาวมากที่สุดที่ถูก): ______",
         dcols=("ความยาว", "ครั้ง A (อ่าน)", "คำตอบ", "ครั้ง B (อ่าน)"),
-        code="งานจับคู่ — 90 วินาที (เฉลยแถวฝึก: 5 2 6 4 1 3)",
-        code_note=("ขีดทับข้อที่ผิด ขีดเส้นหลังข้อสุดท้ายที่ทำถึงเมื่อครบ 90 วินาที ถ้าพูดผิดแล้วแก้เองนับว่าถูก "
-                   "ถ้าทำครบ 144 ก่อน 90 วินาที ให้จดเวลาที่ใช้: ______ วินาที"),
-        row="แถว", ctot=("จำนวนที่ทำ", "ผิด", "ถูกใน 90 วินาที"), obs="สิ่งที่สังเกตได้ (มักมีประโยชน์ต่อแพทย์พอๆ กับคะแนน)",
+        code="งานจับคู่แบบเขียน — 90 วินาที (เฉลยแถวฝึก: 5 2 6 4 1 3)",
+        code_note=("เทียบช่องที่เขียนกับเฉลยด้านล่าง ขีดทับช่องที่ผิดหรือข้าม และทำเครื่องหมายช่องสุดท้ายที่ทำถึงเมื่อครบ 90 วินาที "
+                   "ถ้าเขียนผิดแล้วเขียนตัวที่ถูกไว้ข้างๆ นับว่าถูก ถ้าทำครบ 108 ช่องก่อน 90 วินาที ให้จดเวลาที่ใช้: ______ วินาที "
+                   "&nbsp; วิธีทำ: ☐ เขียน &nbsp;☐ พูด (ใช้เมื่อเขียนลำบากจริงๆ เท่านั้น)"),
+        row="แถว", ctot=("จำนวนช่องที่ทำถึง", "ผิดหรือข้าม", "ถูกใน 90 วินาที"), obs="สิ่งที่สังเกตได้ (มักมีประโยชน์ต่อแพทย์พอๆ กับคะแนน)",
         obs_items=["ต้องอธิบายคำชี้แจงหรือข้อตัวอย่างซ้ำ", "ลืมโจทย์กลางทาง / อ่านซ้ำหลายรอบ", "ช้ากว่าที่คาดมาก แต่รอบคอบ",
                    "เร็วแต่ผิดแบบสะเพร่าในข้อง่าย", "นึกคำไม่ออก หรือตอบแปลกๆ อย่างมั่นใจ", "เหนื่อย หงุดหงิด หรือไม่สบายใจ (ตอนไหน?)",
                    "การได้ยินหรือการมองเห็นดูเป็นอุปสรรค", "อื่นๆ"],
@@ -382,10 +392,11 @@ FORM_S = {
         ds_f="Digit span — forward (score = longest length passed): ______",
         ds_b="Digit span — backward (practice 5-1 → 1-5; score = longest length passed): ______",
         dcols=("Length", "Trial A (say)", "Reply", "Trial B (say)"),
-        code="Coding — 90 seconds (practice answers: 5 2 6 4 1 3)",
-        code_note=("Slash each wrong answer. Draw a line after the last item reached at 90 s. Self-corrections count as correct. "
-                   "If the person finishes all 144 before 90 s, write the finishing time: ______ s"),
-        row="Row", ctot=("Items attempted", "Errors", "Correct in 90 s"), obs="Observations (often as useful to a doctor as the score)",
+        code="Coding, written — 90 seconds (practice answers: 5 2 6 4 1 3)",
+        code_note=("Compare the booklet with the answers below. Slash every wrong or skipped box and mark the last box reached at 90 s. "
+                   "A mistake with the right number written beside it counts as correct. If the person finishes all 108 boxes before 90 s, "
+                   "write the finishing time: ______ s &nbsp; Mode: ☐ written &nbsp;☐ spoken (only if writing is physically hard)"),
+        row="Row", ctot=("Boxes reached", "Wrong or skipped", "Correct in 90 s"), obs="Observations (often as useful to a doctor as the score)",
         obs_items=["Needed instructions or a practice item repeated", "Lost track of a question midway / re-read many times",
                    "Much slower than expected, but careful", "Fast but careless errors on easy items",
                    "Word-finding trouble or odd answers given confidently", "Tired, frustrated or upset (when?)",

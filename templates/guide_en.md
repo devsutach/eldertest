@@ -46,7 +46,7 @@ The test has 45 multiple-choice items plus two short tasks, one timed and one sp
 | **N: Numerical reasoning** | 16–30 (15 items) | Arithmetic, rates, ratios, percentages, data | Declines moderately; strongly tied to schooling |
 | **P: Pattern reasoning** | 31–45 (15 items) | Abstract rules, picture matrices, sequences | Declines clearly |
 | **DS-F / DS-B: Digit span** | Spoken task (§5) | Short-term and working memory | Forward declines a little, backward more |
-| **Coding** | Booklet Part 4 | Processing speed | Declines the most |
+| **Coding** | Booklet Part 4 (written, 90 s) | Processing speed | Declines the most |
 
 Items in each part run from easy to hard. The easy "floor" items are there so her score cannot simply sit at zero. Items 43–45 are the hardest picture puzzles, added to stretch young graduates.
 
@@ -70,10 +70,9 @@ Items in each part run from easy to hard. The easy "floor" items are there so he
 
 **Materials:**
 - The printed booklet in the person's language.
-- A pencil and blank scratch paper. No calculator and no phone for the test-taker.
+- A pen or soft pencil that writes easily (Part 4 is written), and blank scratch paper. No calculator and no phone for the test-taker.
 - A stopwatch (a phone is fine).
 - A record form for that person.
-- A second phone to audio-record the Coding task, if the person agrees.
 
 **Conditions:**
 - A quiet room with good light.
@@ -94,7 +93,7 @@ Items in each part run from easy to hard. The easy "floor" items are there so he
 | 4 | Part 2 (items 16–30) | 15–25 min | Start and end time |
 | – | Break | | |
 | 5 | Part 3 (items 31–45) | 10–20 min | Start and end time |
-| 6 | Part 4 Coding (90 seconds, plus practice) | 3 min | Number correct |
+| 6 | Part 4 Coding, written (90 seconds, plus practice) | 3 min | Number correct |
 
 **For your mom**, it is fine to split the session over two days: steps 1–3 on Day 1 and steps 4–6 on Day 2. Tick that box on the record form.
 
@@ -171,28 +170,40 @@ The key is the same for both booklets (A = ก, B = ข, C = ค, D = ง). The 
 - **Thai version:** three independent reviewers who never saw this key solved every item blind, the last two from the printed booklet. All of them matched the key. Any item where they found a second defensible answer, or a way to guess without solving, was rewritten.
 - **English version:** {{EN_CHECK}}
 
-## 7. Coding task (booklet Part 4)
+## 7. Coding task (booklet Part 4, written)
 
-Say:
+The person writes the number that goes with each shape in the empty box under it. The practice row is on one page; the timed grid (108 boxes, key repeated at the top) is on the next.
 
-> **EN:** Look at the key. Each shape has its own number. Let's try the practice row first: say the number for each shape, from left to right.
+**Practice (not timed).** Say:
+
+> **EN:** Look at the key at the top of the page. Each shape has its own number. In each empty box, write the number that goes with the shape above it. The first box is done for you. Now do the rest of the practice row.
 >
-> **TH:** ดูตารางรหัสนะ แต่ละรูปมีตัวเลขของมัน ลองทำแถวฝึกก่อน พูดตัวเลขของแต่ละรูปจากซ้ายไปขวา
+> **TH:** ดูตารางรหัสด้านบนนะ แต่ละรูปมีตัวเลขของมัน ให้เขียนตัวเลขของรูปนั้นลงในช่องว่างใต้รูป ช่องแรกเขียนให้ดูเป็นตัวอย่างแล้ว ลองทำช่องที่เหลือในแถวฝึก
 
-The practice answers are **5 2 6 4 1 3**. Correct any practice errors. Then say:
+The practice answers are **5 2 6 4 1 3**. Check them and correct any mistakes.
 
-> **EN:** Now do the same on the next page. Start at the top row, go from left to right, then carry on to the next row. Go as quickly and accurately as you can until I say stop. Ready… start.
+**Timed grid.** Then say:
+
+> **EN:** On the next page you'll do the same thing. Start at the top row and go from left to right, then carry on to the next row. Don't skip any boxes. If you make a mistake, don't rub it out; just write the right number next to it. Work as quickly and accurately as you can until I say stop. Ready? Turn the page… start.
 >
-> **TH:** ต่อไปทำแบบเดียวกันในตารางใหญ่ เริ่มแถวบนสุดจากซ้ายไปขวา แล้วต่อแถวถัดไป ให้เร็วและถูกที่สุด จนกว่าจะบอกให้หยุด พร้อมไหม… เริ่ม
+> **TH:** หน้าถัดไปทำแบบเดียวกัน เริ่มแถวบนสุดจากซ้ายไปขวา แล้วต่อแถวถัดไป ห้ามข้ามช่อง ถ้าเขียนผิดไม่ต้องลบ ให้เขียนตัวที่ถูกไว้ข้างๆ ทำให้เร็วและถูกที่สุด จนกว่าจะบอกให้หยุด พร้อมไหม… พลิกหน้า… เริ่ม
 
-Start the stopwatch. At **90 seconds**, say "Stop" / "หยุด".
+Start the stopwatch as the page turns. At **90 seconds**, say "Stop, pen down" / "หยุด วางปากกาได้เลย", then mark the last box they reached.
 
 **Scoring:**
-- The grid has 144 symbols, more than almost anyone will reach in 90 seconds.
-- The score is the **number correct in 90 seconds**. A self-correction counts as correct.
-- If someone does finish before 90 seconds, write down their finishing time. It is then the more useful number.
-- The answer grid is on page 3 of the record form. Slash any errors on it and mark where the person stopped.
-- Scoring live is hard, so recording the audio and scoring it afterwards is more accurate.
+- Score = the **number of boxes filled in correctly within 90 seconds**.
+- Skipped boxes count as wrong.
+- A crossed-out mistake with the right number beside it counts as correct.
+- Accept any number you can read. Don't mark down untidy handwriting.
+- Check the booklet against the answer rows on page 3 of the record form, which match the grid box for box.
+- The grid has 108 boxes, more than almost anyone will fill in 90 seconds. If someone finishes early, write down their finishing time. That time is then the more useful number.
+
+**Handwriting caveat.** Writing adds hand speed to the score. Arthritis, a tremor or poor eyesight can lower an older person's score for reasons that have nothing to do with thinking. Note anything like that on the record form.
+
+If writing is physically hard for someone, use the spoken way instead:
+- The person reads the grid aloud and says each number.
+- You mark their answers on the record form.
+- Tick "spoken" on the form. Spoken and written scores are not directly comparable.
 
 ## 8. Building the comparison (this is what makes "compared to young graduates" mean anything)
 
@@ -239,6 +250,8 @@ A neurologist or memory clinic is more likely to use validated Thai screening to
 
 **Current version: Thai and English sets.**
 
+- **Part 4 is now written.** The person writes the number under each shape: 108 boxes in 90 seconds, with a worked example in the practice row. Answering aloud remains only as a fallback for people who can't write easily (§7).
+
 - The **English set** has the same 45 items, pictures and answer positions as the Thai set. For items 3, 4, 7, 8 and 10, the Thai saying or word was replaced with an English one that has the same meaning and the same kind of trap:
 
   | Item | Thai | English | Trap it keeps |
@@ -267,4 +280,4 @@ A neurologist or memory clinic is more likely to use validated Thai screening to
   | — | New 45: dot moves clockwise while the arrow turns anticlockwise |
 
 - **Answer options rebalanced.** In items 36 and 42–45, a test-wise person can no longer reach the answer by elimination, feature counting or "no repeats". The best shortcut leaves a 1-in-2 to 1-in-3 guess.
-- **Coding task.** It now uses 6 clearly different symbols and 144 items, and the key is on the same page as the grid.
+- **Coding task.** It now uses 6 clearly different symbols, and the key is on the same page as the grid.
