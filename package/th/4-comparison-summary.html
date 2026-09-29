@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ตารางสรุปผลเปรียบเทียบ</title><style>@font-face{font-family:'Sarabun';font-weight:400;font-style:normal;font-display:block;src:url(../fonts/sarabun-thai-400-normal.woff2) format('woff2');unicode-range:U+0E01-0E5B,U+200C-200D,U+25CC}
+@font-face{font-family:'Sarabun';font-weight:700;font-style:normal;font-display:block;src:url(../fonts/sarabun-thai-700-normal.woff2) format('woff2');unicode-range:U+0E01-0E5B,U+200C-200D,U+25CC}
+@font-face{font-family:'Sarabun';font-weight:400;font-style:normal;font-display:block;src:url(../fonts/sarabun-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Sarabun';font-weight:700;font-style:normal;font-display:block;src:url(../fonts/sarabun-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{--ink:#111;--muted:#555;--rule:#bbb;--soft:#f3f3f3;--paper:#fff;--desk:#e6e6e6}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Sarabun','Leelawadee UI','Tahoma',sans-serif;line-height:1.55}
+.sheet{width:100%;max-width:180mm;margin:0 auto}
+h1,h2,h3{line-height:1.25;margin:0 0 .5em}
+table{border-collapse:collapse}
+.toolbar{display:none}
+@media screen{
+  body{background:var(--desk)}
+  .sheet{background:var(--paper);max-width:210mm;padding:14mm 15mm;margin:0 auto 12mm;box-shadow:0 1px 6px rgba(0,0,0,.18)}
+  .toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;max-width:210mm;margin:0 auto;padding:12px 4px;
+    font-size:15px;color:#333;flex-wrap:wrap}
+  .toolbar a{color:#333}
+  .toolbar button{font:inherit;font-weight:700;padding:8px 18px;border:2px solid #111;background:#fff;border-radius:6px;cursor:pointer}
+  .toolbar button:hover{background:#111;color:#fff}
+  .pb{border-top:2px dashed #aaa;margin-top:10mm;padding-top:10mm}
+}
+@media screen and (max-width:760px){
+  .sheet{padding:16px;max-width:none}
+  .toolbar{padding:10px 16px}
+  svg{max-width:100%}
+}
+@media print{ .pb{break-before:page;padding-top:2mm} .toolbar{display:none} }
+
+@page{size:A4 landscape;margin:11mm 12mm 12mm}
+body{font-size:10pt}
+@media screen{.sheet{max-width:297mm}.toolbar{max-width:297mm}.tw{overflow-x:auto}}
+.sheet{max-width:273mm}
+h1{font-size:16pt;margin:0 0 1mm}
+table{width:100%}
+th,td{border:1px solid #777;padding:1.2mm 1.5mm;text-align:center}
+th{background:var(--soft)}
+td{height:8.4mm}
+.small{font-size:8.5pt;color:#555}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><pattern id="stripe" patternUnits="userSpaceOnUse" width="8" height="8"><rect width="8" height="8" fill="#fff"/><path d="M-2,2 L2,-2 M0,8 L8,0 M6,10 L10,6" stroke="#111" stroke-width="2.4" stroke-linecap="square"/></pattern></defs></svg>
+<div class="toolbar"><span><a href="../index.html">← หน้าแรก</a> · ตารางสรุปผล · A4 แนวนอน</span><button onclick="window.print()">พิมพ์ (A4)</button></div>
+<main class="sheet"><h1>ตารางสรุปผลเปรียบเทียบ</h1><p class='small'>กลุ่ม A = คนหนุ่มสาวจบปริญญาตรี (20–30 ปี) · กลุ่ม B = ผู้สูงอายุรุ่นเดียวกัน (70–85 ปี) · เทียบโดยเรียงลำดับภายในแต่ละกลุ่ม ทีละคอลัมน์ (ดูคู่มือข้อ 8–9) · เทียบ K และ VR เฉพาะคนที่ทำฉบับภาษาเดียวกัน</p><div class='tw'><table><tr><th>ชื่อ / รหัส</th><th>กลุ่ม</th><th>ภาษา</th><th>อายุ</th><th>ปีที่เรียน</th><th>K /7</th><th>VR /8</th><th>N /15</th><th>P /15</th><th>รวม /45</th><th>DS-F</th><th>DS-B</th><th>จับคู่ 90 วิ</th><th>เวลา ส.1</th><th>เวลา ส.2</th><th>เวลา ส.3</th></tr><tr><td><b>คุณแม่</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan='5' style='text-align:left'><b>คุณแม่อยู่ตรงไหนในกลุ่ม A</b> <span class='small'>(เช่น “ต่ำกว่าทั้ง 8 คน”)</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan='5' style='text-align:left'><b>คุณแม่อยู่ตรงไหนในกลุ่ม B</b></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></div></main>
+</body></html>

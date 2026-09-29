@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tester Guide & Answer Key</title><style>@font-face{font-family:'Sarabun';font-weight:400;font-style:normal;font-display:block;src:url(../fonts/sarabun-thai-400-normal.woff2) format('woff2');unicode-range:U+0E01-0E5B,U+200C-200D,U+25CC}
+@font-face{font-family:'Sarabun';font-weight:700;font-style:normal;font-display:block;src:url(../fonts/sarabun-thai-700-normal.woff2) format('woff2');unicode-range:U+0E01-0E5B,U+200C-200D,U+25CC}
+@font-face{font-family:'Sarabun';font-weight:400;font-style:normal;font-display:block;src:url(../fonts/sarabun-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Sarabun';font-weight:700;font-style:normal;font-display:block;src:url(../fonts/sarabun-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{--ink:#111;--muted:#555;--rule:#bbb;--soft:#f3f3f3;--paper:#fff;--desk:#e6e6e6}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Sarabun','Leelawadee UI','Tahoma',sans-serif;line-height:1.55}
+.sheet{width:100%;max-width:180mm;margin:0 auto}
+h1,h2,h3{line-height:1.25;margin:0 0 .5em}
+table{border-collapse:collapse}
+.toolbar{display:none}
+@media screen{
+  body{background:var(--desk)}
+  .sheet{background:var(--paper);max-width:210mm;padding:14mm 15mm;margin:0 auto 12mm;box-shadow:0 1px 6px rgba(0,0,0,.18)}
+  .toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;max-width:210mm;margin:0 auto;padding:12px 4px;
+    font-size:15px;color:#333;flex-wrap:wrap}
+  .toolbar a{color:#333}
+  .toolbar button{font:inherit;font-weight:700;padding:8px 18px;border:2px solid #111;background:#fff;border-radius:6px;cursor:pointer}
+  .toolbar button:hover{background:#111;color:#fff}
+  .pb{border-top:2px dashed #aaa;margin-top:10mm;padding-top:10mm}
+}
+@media screen and (max-width:760px){
+  .sheet{padding:16px;max-width:none}
+  .toolbar{padding:10px 16px}
+  svg{max-width:100%}
+}
+@media print{ .pb{break-before:page;padding-top:2mm} .toolbar{display:none} }
+
+@page{size:A4;margin:14mm 15mm 16mm;
+  @bottom-right{content:"page " counter(page);font-family:Sarabun,sans-serif;font-size:9pt;color:#666}
+  @bottom-left{content:"Tester guide & answer key — keep private";font-family:Sarabun,sans-serif;font-size:9pt;color:#666}}
+body{font-size:11pt}
+h1{font-size:22pt;margin-top:0}
+h2{font-size:15pt;margin:8mm 0 3mm;padding-top:1mm;padding-bottom:1.5mm;border-bottom:2px solid #111;break-after:avoid}
+h3{font-size:12.5pt;margin:5mm 0 2mm;break-after:avoid}
+p,li{orphans:3;widows:3}
+table{width:100%;margin:2mm 0 4mm;font-size:10pt;break-inside:auto}
+tr{break-inside:avoid}
+th,td{border:1px solid #999;padding:1.3mm 2mm;text-align:left;vertical-align:top}
+th{background:var(--soft)}
+blockquote{margin:2mm 0 3mm;padding:2.5mm 4mm;border-left:4px solid #111;background:var(--soft);font-size:11.5pt;break-inside:avoid}
+blockquote p{margin:.4em 0}
+code{font-size:10pt;background:var(--soft);padding:0 3px;border-radius:3px}
+.warn{border:2px solid #111;padding:2.5mm 4mm;border-radius:2mm;background:#fff6d6}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><pattern id="stripe" patternUnits="userSpaceOnUse" width="8" height="8"><rect width="8" height="8" fill="#fff"/><path d="M-2,2 L2,-2 M0,8 L8,0 M6,10 L10,6" stroke="#111" stroke-width="2.4" stroke-linecap="square"/></pattern></defs></svg>
+<div class="toolbar"><span><a href="../index.html">← Home</a> · Tester guide · keep private · A4</span><button onclick="window.print()">Print (A4)</button></div>
+<main class="sheet"><h1>Tester Guide &amp; Answer Key</h1>
+<p class="warn"><b>Keep this guide private.</b> Nobody who takes the test should see this guide or the record form, because both show the answers.</p>
+<h2>1. What the package contains</h2>
+<p>The package has two complete sets, one per language, with identical questions, pictures and answer positions:</p>
+<table>
+<thead>
+<tr>
+<th>Folder</th>
+<th>Language</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>th/</code></td>
+<td>Thai (ภาษาไทย)</td>
+<td>Booklet, tester guide, record form, comparison summary</td>
+</tr>
+<tr>
+<td><code>en/</code></td>
+<td>English</td>
+<td>Booklet, tester guide (this file), record form, comparison summary</td>
+</tr>
+</tbody>
+</table>
+<p>Each set has four files:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Print</th>
+<th>Who sees it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1-test-booklet.html</code></td>
+<td>One per person tested (22 A4 pages)</td>
+<td>The test-taker</td>
+</tr>
+<tr>
+<td><code>2-tester-guide.html</code></td>
+<td>One copy, for you</td>
+<td>Tester only</td>
+</tr>
+<tr>
+<td><code>3-record-form.html</code></td>
+<td>One per person tested (3 pages)</td>
+<td>Tester only (shows the key)</td>
+</tr>
+<tr>
+<td><code>4-comparison-summary.html</code></td>
+<td>One copy (A4 landscape)</td>
+<td>Tester only</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Printing:</strong></p>
+<ul>
+<li>Open a file in Chrome or Edge and press Ctrl+P (⌘P on a Mac).</li>
+<li>Choose Paper <strong>A4</strong>, Scale <strong>100%</strong> and Margins <strong>Default</strong>.</li>
+<li>Print the booklet <strong>single-sided</strong>, so the timed coding grid can't be seen before you say &quot;Start&quot;.</li>
+<li>Test-print item 43 once, to check that the hatched shapes look clearly different from the black ones.</li>
+<li>The font is bundled in the <code>fonts</code> folder, so keep that folder where it is.</li>
+<li>Ready-made PDFs are in the <code>pdf</code> folder.</li>
+</ul>
+<h3>Which language version to use</h3>
+<ul>
+<li><strong>Give each person the version in the language they read best.</strong> Your mom takes the Thai booklet. You can still use this English guide to run it: every script below comes in both languages.</li>
+<li><strong>Answer letters line up across the two versions:</strong> ก = A, ข = B, ค = C, ง = D. The key works for either booklet.</li>
+<li><strong>Numbers, patterns, digit span and coding are the same in both languages</strong> (Parts 2–4 and the spoken task). Scores on these can be compared across people who took different versions.</li>
+<li><strong>The word items are translations, not identical items.</strong> Items 3, 4, 7, 8 and 10 use an English saying or word with the same meaning and the same kind of trap as the Thai one; the other verbal items are straight translations. Difficulty may differ between the languages. <strong>Compare K and VR scores only between people who took the same language version.</strong> For the fairest comparison with your mom, have your Thai-speaking graduates take the Thai booklet too.</li>
+</ul>
+<h2>2. What this test is, and its honest limits</h2>
+<p>The test has 45 multiple-choice items plus two short tasks, one timed and one spoken. The multiple-choice items are grouped into scales:</p>
+<table>
+<thead>
+<tr>
+<th>Scale</th>
+<th>Items</th>
+<th>What it taps</th>
+<th>What usually happens with age in healthy people</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>K: Knowledge</strong></td>
+<td>1, 2, 3, 4, 7, 8, 10 (7 items)</td>
+<td>Vocabulary, idioms, simple analogies</td>
+<td>Usually <strong>holds up</strong>; older adults can beat young ones</td>
+</tr>
+<tr>
+<td><strong>VR: Verbal reasoning</strong></td>
+<td>5, 6, 9, 11, 12, 13, 14, 15 (8 items)</td>
+<td>Logic, relational analogies, reading inference</td>
+<td>Declines moderately</td>
+</tr>
+<tr>
+<td><strong>N: Numerical reasoning</strong></td>
+<td>16–30 (15 items)</td>
+<td>Arithmetic, rates, ratios, percentages, data</td>
+<td>Declines moderately; strongly tied to schooling</td>
+</tr>
+<tr>
+<td><strong>P: Pattern reasoning</strong></td>
+<td>31–45 (15 items)</td>
+<td>Abstract rules, picture matrices, sequences</td>
+<td>Declines clearly</td>
+</tr>
+<tr>
+<td><strong>DS-F / DS-B: Digit span</strong></td>
+<td>Spoken task (§5)</td>
+<td>Short-term and working memory</td>
+<td>Forward declines a little, backward more</td>
+</tr>
+<tr>
+<td><strong>Coding</strong></td>
+<td>Booklet Part 4</td>
+<td>Processing speed</td>
+<td>Declines the most</td>
+</tr>
+</tbody>
+</table>
+<p>Items in each part run from easy to hard. The easy &quot;floor&quot; items are there so her score cannot simply sit at zero. Items 43–45 are the hardest picture puzzles, added to stretch young graduates.</p>
+<p><strong>Limits:</strong></p>
+<ol>
+<li>
+<p><strong>There are no norms.</strong> A test written for one family has no population data behind it. The comparison is only as good as the comparison group you collect yourself (§8).</p>
+</li>
+<li>
+<p><strong>The difficulty ratings are estimates</strong> from the design and from independent blind reviews, not from testing real people. Reviewers estimated that about 60%, 50% and 45% of graduates would get items 43, 44 and 45 right, and about 45–65% the hardest number items (29–30). Strong graduates may therefore bunch near the top. The Coding task and the section times spread people out more.</p>
+</li>
+<li>
+<p><strong>A healthy 78-year-old is expected to score well below people in their twenties</strong> on P, N, Coding and DS-B. This is one of the most replicated findings in cognitive-ageing research. A gap against young graduates is therefore not, by itself, a sign that something is wrong. §9 explains how to read the results.</p>
+</li>
+<li>
+<p><strong>Schooling matters.</strong> Items 11–15 and 18–30 lean on schoolroom skills such as percentages, syllogisms and ratios. If she left school early, compare her mainly with age peers who had similar schooling.</p>
+</li>
+<li>
+<p><strong>Guessing sets a floor.</strong> With four options, pure guessing averages 25%, which is 3–4 items out of 15.</p>
+<table>
+<thead>
+<tr>
+<th>Scale</th>
+<th>Clearly above chance (p &lt; .06)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A 15-item part</td>
+<td>7 or more</td>
+</tr>
+<tr>
+<td>K (7 items)</td>
+<td>4 or more</td>
+</tr>
+<tr>
+<td>VR (8 items)</td>
+<td>5 or more</td>
+</tr>
+</tbody>
+</table>
+<p>A score near chance means that part was too hard to measure her. It does not mean zero ability.</p>
+</li>
+</ol>
+<h2>3. Setup (the same for every person tested)</h2>
+<p><strong>Materials:</strong></p>
+<ul>
+<li>The printed booklet in the person's language.</li>
+<li>A pencil and blank scratch paper. No calculator and no phone for the test-taker.</li>
+<li>A stopwatch (a phone is fine).</li>
+<li>A record form for that person.</li>
+<li>A second phone to audio-record the Coding task, if the person agrees.</li>
+</ul>
+<p><strong>Conditions:</strong></p>
+<ul>
+<li>A quiet room with good light.</li>
+<li>Glasses and hearing aids on.</li>
+<li>The person should not be tired, hungry or unwell, and should have no new medication that day.</li>
+<li>For an older adult, late morning is usually best.</li>
+</ul>
+<p><strong>One person at a time.</strong> Nobody should discuss the answers until your whole comparison group has finished.</p>
+<p><strong>Order of the session:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What</th>
+<th>Young adults (est.)</th>
+<th>Record on the form</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Standard instructions + 4 practice items</td>
+<td>5 min</td>
+<td>–</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Booklet Part 1 (items 1–15)</td>
+<td>10–15 min</td>
+<td>Start and end time</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Digit span (spoken, §5)</td>
+<td>5 min</td>
+<td>Trials passed</td>
+</tr>
+<tr>
+<td>–</td>
+<td>Break of 5–10 min</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Part 2 (items 16–30)</td>
+<td>15–25 min</td>
+<td>Start and end time</td>
+</tr>
+<tr>
+<td>–</td>
+<td>Break</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Part 3 (items 31–45)</td>
+<td>10–20 min</td>
+<td>Start and end time</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Part 4 Coding (90 seconds, plus practice)</td>
+<td>3 min</td>
+<td>Number correct</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For your mom</strong>, it is fine to split the session over two days: steps 1–3 on Day 1 and steps 4–6 on Day 2. Tick that box on the record form.</p>
+<h2>4. Scripts (read the same words to everyone)</h2>
+<p>Each script is given in English (EN) and Thai (TH). Use the one that matches the booklet.</p>
+<p><strong>Inviting your mom (honest and light):</strong></p>
+<blockquote>
+<p><strong>TH:</strong> แม่ ลูกกำลังให้หลายๆ คนลองทำแบบทดสอบการคิดชุดนี้ ทั้งเพื่อนรุ่นลูก และผู้ใหญ่รุ่นเดียวกับแม่ แม่ช่วยลองทำด้วยได้ไหม ข้อหลังๆ ยากมากนะ คนหนุ่มสาวก็ทำไม่ได้หมด</p>
+</blockquote>
+<p>This framing is only true if you really do test the comparison group, so do.</p>
+<p><strong>Standard instructions (everyone):</strong></p>
+<blockquote>
+<p><strong>EN:</strong> This test has easy questions and hard ones. The last questions in each part are very hard, and it is normal not to finish them all. There is no time limit, but I will note the time, so just work at your normal pace. If you are not sure, choose the answer that seems closest; don't leave any blank. You may use scrap paper, but no calculator. Let's start with the practice questions.</p>
+<p><strong>TH:</strong> แบบทดสอบนี้มีข้อง่ายและข้อยาก ข้อท้ายๆ ของแต่ละส่วนยากมาก ตอบได้ไม่ครบเป็นเรื่องปกติ ไม่จำกัดเวลา แต่จะจดเวลาไว้ ทำตามจังหวะปกติ ถ้าไม่แน่ใจให้เลือกข้อที่ใกล้ที่สุด อย่าเว้นว่าง ใช้กระดาษทดได้ แต่ไม่ใช้เครื่องคิดเลข เริ่มจากตัวอย่างก่อนนะ</p>
+</blockquote>
+<p>(In Thai, use แม่ with your mom and คุณ with everyone else.)</p>
+<p><strong>Practice items.</strong> You <em>may</em> explain these four, and only these. The answers are <strong>1 = B (ข), 2 = A (ก), 3 = C (ค), 4 = A (ก)</strong>. For the first one, say:</p>
+<blockquote>
+<p><strong>EN:</strong> &quot;A bird flies. What does a fish do?&quot;</p>
+<p><strong>TH:</strong> &quot;นกคู่กับบิน ปลาคู่กับอะไรแบบเดียวกัน&quot;</p>
+</blockquote>
+<p><strong>During the scored items:</strong></p>
+<ul>
+<li>Never say whether an answer is right.</li>
+<li>Never hint at an answer or rephrase a question.</li>
+<li>To encourage someone, say only &quot;Keep going&quot; / &quot;ทำต่อได้เลย&quot;.</li>
+<li>If they ask for help, say &quot;Just choose what seems most right to you&quot; / &quot;ตอบตามที่คิดว่าใช่ที่สุดได้เลย&quot;.</li>
+<li><strong>The 3-minute rule</strong> applies to everyone. If a person is stuck on one item for about 3 minutes, say &quot;If you can't work it out, choose the closest answer and move on&quot; / &quot;ถ้าคิดไม่ออก เลือกข้อที่ใกล้ที่สุดแล้วไปข้อต่อไปได้&quot;.</li>
+<li>If your mom becomes distressed or tired, stop and reassure her. Finish on another day and note it on the form.</li>
+</ul>
+<h2>5. Digit span (spoken; do it right after Part 1)</h2>
+<p><strong>How to read the digits:</strong> say one digit per second, in a flat voice, without grouping them. Say &quot;5… 8… 2&quot;, not &quot;58-2&quot;. Say the digits in the same language as the booklet.</p>
+<p><strong>Procedure for each length:</strong></p>
+<ol>
+<li>Read Trial A. If it is correct, move up to the next length.</li>
+<li>If Trial A is wrong, read Trial B. If B is correct, move up.</li>
+<li>If both A and B are wrong, stop.</li>
+</ol>
+<p><strong>Score</strong> = the longest length passed on either trial. Tick the trials on the record form, which repeats these sequences.</p>
+<p><strong>Forward.</strong> Say:</p>
+<blockquote>
+<p><strong>EN:</strong> I'm going to say some numbers, one at a time. Listen carefully. When I stop, say them back to me in the same order.</p>
+<p><strong>TH:</strong> จะพูดตัวเลขทีละตัว ฟังให้ดี พอพูดจบ ให้พูดตามให้ครบทุกตัว เรียงตามลำดับเดิม</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Length</th>
+<th>Trial A</th>
+<th>Trial B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>9-5-6</td>
+<td>1-7-4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>8-6-5-2</td>
+<td>6-1-4-8</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5-7-6-9-8</td>
+<td>2-1-9-3-5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1-4-8-6-5-3</td>
+<td>6-3-5-2-9-7</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2-4-9-6-3-5-7</td>
+<td>1-9-7-6-3-8-4</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4-1-5-9-7-6-2-8</td>
+<td>2-6-3-9-5-8-1-7</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9-6-3-8-1-5-7-4-2</td>
+<td>5-3-6-1-9-4-7-8-2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Backward.</strong> Say:</p>
+<blockquote>
+<p><strong>EN:</strong> This time, say the numbers backwards, from the last one to the first. For example, if I say 3-8, you say 8-3.</p>
+<p><strong>TH:</strong> คราวนี้ ให้พูดย้อนกลับ จากตัวสุดท้ายไปตัวแรก เช่น ถ้าพูดว่า 3-8 ต้องตอบว่า 8-3</p>
+</blockquote>
+<p>Practise first with &quot;5-1&quot;; the correct reply is &quot;1-5&quot;. If they get it wrong, correct them once, then start.</p>
+<table>
+<thead>
+<tr>
+<th>Length</th>
+<th>Trial A (say)</th>
+<th>Correct reply</th>
+<th>Trial B (say)</th>
+<th>Correct reply</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>2-7</td>
+<td>7-2</td>
+<td>9-2</td>
+<td>2-9</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3-6-1</td>
+<td>1-6-3</td>
+<td>3-8-4</td>
+<td>4-8-3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5-9-7-2</td>
+<td>2-7-9-5</td>
+<td>4-1-2-5</td>
+<td>5-2-1-4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>7-5-1-4-9</td>
+<td>9-4-1-5-7</td>
+<td>4-9-8-5-1</td>
+<td>1-5-8-9-4</td>
+</tr>
+<tr>
+<td>6</td>
+<td>8-7-3-1-9-5</td>
+<td>5-9-1-3-7-8</td>
+<td>9-1-2-4-6-5</td>
+<td>5-6-4-2-1-9</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7-9-1-4-8-6-5</td>
+<td>5-6-8-4-1-9-7</td>
+<td>8-5-1-3-4-6-7</td>
+<td>7-6-4-3-1-5-8</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1-2-5-3-7-6-9-4</td>
+<td>4-9-6-7-3-5-2-1</td>
+<td>5-1-9-4-7-8-2-3</td>
+<td>3-2-8-7-4-9-1-5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>A rough ballpark only, not norms:</strong> healthy young adults commonly manage about 7 digits forward and about 5 backward. Spans shrink with age, the backward span more than the forward one. Your comparison group is the reference that actually counts.</p>
+<h2>6. Answer key</h2>
+<p>The key is the same for both booklets (A = ก, B = ข, C = ค, D = ง). The <strong>Error it suggests</strong> column is optional. It records what the most informative wrong answers usually mean, which helps when you describe <em>how</em> she reasons, not only her score.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Answer</th>
+<th>Scale</th>
+<th>Error it suggests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>C</strong> (ค)</td>
+<td>K</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>A</strong> (ก)</td>
+<td>K</td>
+<td>B = picked an association instead of the relation</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>B</strong> (ข)</td>
+<td>K</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>D</strong> (ง)</td>
+<td>K</td>
+<td>A = sound-alike lure (TH: ถี่ “frequent”; EN: “through”)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>B</strong> (ข)</td>
+<td>VR</td>
+<td>C = picked the first arrival and lost “second”</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>C</strong> (ค)</td>
+<td>VR</td>
+<td>A = picked a consequence, not “what is lacking”</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>A</strong> (ก)</td>
+<td>K</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>D</strong> (ง)</td>
+<td>K</td>
+<td>A = literal “big versus small” reading</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>B</strong> (ข)</td>
+<td>VR</td>
+<td>A / C / D = a different kind of relation (product, home, body part), not a life stage</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>C</strong> (ค)</td>
+<td>K</td>
+<td>A = look-alike word (TH: ตระหนก; EN: “imminent”)</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>A</strong> (ก)</td>
+<td>VR</td>
+<td>B = took correlation as causation</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>C</strong> (ค)</td>
+<td>VR</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>B</strong> (ข)</td>
+<td>VR</td>
+<td>A = affirming the consequent</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>D</strong> (ง)</td>
+<td>VR</td>
+<td>B = over-caution (“cannot conclude” everywhere)</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>A</strong> (ก)</td>
+<td>VR</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>B</strong> (ข)</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>C</strong> (ค)</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>C</strong> (ค)</td>
+<td>N</td>
+<td>A = gave the discount itself; D = subtracted 25 baht</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>D</strong> (ง)</td>
+<td>N</td>
+<td>B = repeated the last difference</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>C</strong> (ค)</td>
+<td>N</td>
+<td>D = read 2.5 hours as 2 h 50 min</td>
+</tr>
+<tr>
+<td>21</td>
+<td><strong>A</strong> (ก)</td>
+<td>N</td>
+<td>B = took 1/4 of the total</td>
+</tr>
+<tr>
+<td>22</td>
+<td><strong>D</strong> (ง)</td>
+<td>N</td>
+<td>C = repeated +5</td>
+</tr>
+<tr>
+<td>23</td>
+<td><strong>D</strong> (ง)</td>
+<td>N</td>
+<td>A = divided by 5; C = arithmetic slip</td>
+</tr>
+<tr>
+<td>24</td>
+<td><strong>A</strong> (ก)</td>
+<td>N</td>
+<td>B = largest rise in baht, not in %</td>
+</tr>
+<tr>
+<td>25</td>
+<td><strong>A</strong> (ก)</td>
+<td>N</td>
+<td>C = son’s age in 12 years; D = father’s age now</td>
+</tr>
+<tr>
+<td>26</td>
+<td><strong>B</strong> (ข)</td>
+<td>N</td>
+<td>C = averaged the times; D = added them</td>
+</tr>
+<tr>
+<td>27</td>
+<td><strong>D</strong> (ง)</td>
+<td>N</td>
+<td>A = assumed +20% and −20% cancel out</td>
+</tr>
+<tr>
+<td>28</td>
+<td><strong>B</strong> (ข)</td>
+<td>N</td>
+<td>C = mirrored the gap (66 + 6)</td>
+</tr>
+<tr>
+<td>29</td>
+<td><strong>C</strong> (ค)</td>
+<td>N</td>
+<td>D = averaged the two speeds (classic trap)</td>
+</tr>
+<tr>
+<td>30</td>
+<td><strong>B</strong> (ข)</td>
+<td>N</td>
+<td>C = forgot that the hour hand moves</td>
+</tr>
+<tr>
+<td>31</td>
+<td><strong>D</strong> (ง)</td>
+<td>P</td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td><strong>A</strong> (ก)</td>
+<td>P</td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td><strong>C</strong> (ค)</td>
+<td>P</td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td><strong>B</strong> (ข)</td>
+<td>P</td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td><strong>B</strong> (ข)</td>
+<td>P</td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td><strong>C</strong> (ค)</td>
+<td>P</td>
+<td>B = right count, wrong shape</td>
+</tr>
+<tr>
+<td>37</td>
+<td><strong>A</strong> (ก)</td>
+<td>P</td>
+<td></td>
+</tr>
+<tr>
+<td>38</td>
+<td><strong>C</strong> (ค)</td>
+<td>P</td>
+<td>A = added instead of multiplied</td>
+</tr>
+<tr>
+<td>39</td>
+<td><strong>A</strong> (ก)</td>
+<td>P</td>
+<td></td>
+</tr>
+<tr>
+<td>40</td>
+<td><strong>D</strong> (ง)</td>
+<td>P</td>
+<td>A = continued the wrong sub-sequence</td>
+</tr>
+<tr>
+<td>41</td>
+<td><strong>B</strong> (ข)</td>
+<td>P</td>
+<td>ก = a² + b; ค = (a + b)²; ง = (a × b)²</td>
+</tr>
+<tr>
+<td>42</td>
+<td><strong>D</strong> (ง)</td>
+<td>P</td>
+<td>A / C = right shape, wrong count; B = copied a cell</td>
+</tr>
+<tr>
+<td>43</td>
+<td><strong>C</strong> (ค)</td>
+<td>P</td>
+<td>A = wrong fill; B = wrong shape and count; D = wrong fill and count</td>
+</tr>
+<tr>
+<td>44</td>
+<td><strong>A</strong> (ก)</td>
+<td>P</td>
+<td>B = dropped a shape; C = union (kept the shared one); D = kept only the shared one</td>
+</tr>
+<tr>
+<td>45</td>
+<td><strong>D</strong> (ง)</td>
+<td>P</td>
+<td>A = arrow turned wrongly; B = dot moved wrongly; C = both wrong</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How the key was checked:</strong></p>
+<ul>
+<li>
+<p><strong>Thai version:</strong> three independent reviewers who never saw this key solved every item blind, the last two from the printed booklet. All of them matched the key. Any item where they found a second defensible answer, or a way to guess without solving, was rewritten.</p>
+</li>
+<li>
+<p><strong>English version:</strong> An independent reviewer who never saw this key solved the whole printed English booklet. They matched the key on all 45 items and the 4 practice items. Their points on English wording and on answers that could be guessed without solving were then fixed:</p>
+</li>
+<li>
+<p>Item 13's correct option is no longer the longest.</p>
+</li>
+<li>
+<p>Items 7 and 9 got new options.</p>
+</li>
+<li>
+<p>Item 29 now gives its units as km/h.</p>
+</li>
+<li>
+<p>Items 11–12 now print on the same page as their passage, and items 23–24 on the same page as their table.</p>
+</li>
+</ul>
+<p>The same reviewer then re-checked the revised booklet and found exactly one defensible answer in every changed item.</p>
+<h2>7. Coding task (booklet Part 4)</h2>
+<p>Say:</p>
+<blockquote>
+<p><strong>EN:</strong> Look at the key. Each shape has its own number. Let's try the practice row first: say the number for each shape, from left to right.</p>
+<p><strong>TH:</strong> ดูตารางรหัสนะ แต่ละรูปมีตัวเลขของมัน ลองทำแถวฝึกก่อน พูดตัวเลขของแต่ละรูปจากซ้ายไปขวา</p>
+</blockquote>
+<p>The practice answers are <strong>5 2 6 4 1 3</strong>. Correct any practice errors. Then say:</p>
+<blockquote>
+<p><strong>EN:</strong> Now do the same on the next page. Start at the top row, go from left to right, then carry on to the next row. Go as quickly and accurately as you can until I say stop. Ready… start.</p>
+<p><strong>TH:</strong> ต่อไปทำแบบเดียวกันในตารางใหญ่ เริ่มแถวบนสุดจากซ้ายไปขวา แล้วต่อแถวถัดไป ให้เร็วและถูกที่สุด จนกว่าจะบอกให้หยุด พร้อมไหม… เริ่ม</p>
+</blockquote>
+<p>Start the stopwatch. At <strong>90 seconds</strong>, say &quot;Stop&quot; / &quot;หยุด&quot;.</p>
+<p><strong>Scoring:</strong></p>
+<ul>
+<li>The grid has 144 symbols, more than almost anyone will reach in 90 seconds.</li>
+<li>The score is the <strong>number correct in 90 seconds</strong>. A self-correction counts as correct.</li>
+<li>If someone does finish before 90 seconds, write down their finishing time. It is then the more useful number.</li>
+<li>The answer grid is on page 3 of the record form. Slash any errors on it and mark where the person stopped.</li>
+<li>Scoring live is hard, so recording the audio and scoring it afterwards is more accurate.</li>
+</ul>
+<h2>8. Building the comparison (this is what makes &quot;compared to young graduates&quot; mean anything)</h2>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Who</th>
+<th>How many</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A. Young graduates</strong> (your benchmark)</td>
+<td>Aged 20–30 with a bachelor's degree, from a mix of fields</td>
+<td>6–10</td>
+<td>The benchmark you asked for</td>
+</tr>
+<tr>
+<td><strong>B. Age peers</strong> (strongly recommended)</td>
+<td>Aged 70–85, with schooling similar to hers, living independently, no known memory problems</td>
+<td>3–6</td>
+<td>The only fair comparison for the question &quot;is something wrong?&quot;</td>
+</tr>
+</tbody>
+</table>
+<p>Don't include yourself, because you have seen the key. Note on the summary sheet which language version each person took.</p>
+<p>Put everyone's results on the comparison summary sheet (<code>4-comparison-summary.html</code>). For each column, sort each group's scores and note where she falls. For example: &quot;below everyone in Group A&quot;, &quot;in the bottom third of Group B&quot;, or &quot;above the Group A median on K&quot;.</p>
+<p><strong>Use ranks, not z-scores.</strong> Graduates tend to bunch near the top of the multiple-choice parts. That makes their spread small and z-scores misleading, and with 6–10 people a z-score looks far more precise than it is. The Coding scores and part times spread people out more, so comparisons on those are more trustworthy.</p>
+<h2>9. How to read her results</h2>
+<p><strong>Look at the profile across scales, not the total score.</strong></p>
+<table>
+<thead>
+<tr>
+<th>What you see</th>
+<th>Most likely meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K at or near Group A; P, N, Coding and DS-B below Group A but <strong>within Group B's range</strong></td>
+<td><strong>Typical ageing profile.</strong> Knowledge is preserved while speed and fluid reasoning are lower. Not evidence of a problem by itself.</td>
+</tr>
+<tr>
+<td>K fine, but P, N, Coding or DS-B <strong>clearly below Group B</strong> (below all or nearly all age peers)</td>
+<td>A gap beyond typical ageing. <strong>Worth raising with a doctor</strong>, and bring the record form.</td>
+</tr>
+<tr>
+<td>K itself low: lower than her schooling and her past way of talking and reading would suggest</td>
+<td>Knowledge is usually the <em>last</em> ability to decline, so this is <strong>worth raising with a doctor</strong>.</td>
+</tr>
+<tr>
+<td>Much slower than her peers, but accurate</td>
+<td>Slowed processing: she gets there with enough time. This fits the &quot;hard time processing&quot; you noticed.</td>
+</tr>
+<tr>
+<td>Fast, but many errors on easy items</td>
+<td>Points to attention or impulsivity rather than reasoning.</td>
+</tr>
+<tr>
+<td>Near chance (5 or fewer out of 15) in a part</td>
+<td>That part was too hard to measure her. It does not mean zero ability.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Also note how she worked.</strong> Did she lose track of questions midway, need the practice explanation repeated, get upset, give up, or confidently give odd answers? These observations often tell a doctor more than the score does. The record form has space for them.</p>
+<p><strong>The strongest objection to this whole exercise:</strong> if your real question is &quot;is my mom's thinking declining?&quot;, Group A answers a different question. The evidence that actually answers yours is:</p>
+<ul>
+<li>how she compares with age peers (Group B);</li>
+<li>change against her own past;</li>
+<li>real-life difficulties, such as with bills or medicines, repeating questions, following conversations, or getting lost.</li>
+</ul>
+<p>If you are seeing those real-life changes, see a doctor <strong>whatever this test shows</strong>.</p>
+<p><strong>If you want real percentiles,</strong> a clinical psychologist or neuropsychologist can give a standardized battery such as the Wechsler Adult Intelligence Scale (WAIS). Ask them to report both age-adjusted scores and young-adult reference-group scores. To my knowledge, recent WAIS editions provide the latter for roughly ages 20–34. Also check which country's sample the norms come from.</p>
+<p>A neurologist or memory clinic is more likely to use validated Thai screening tools such as the TMSE or the Thai MoCA. <strong>Don't practise any of these at home.</strong> Practice effects can make a later clinical assessment look better than it should.</p>
+<p><strong>Don't wait for any test if</strong> the change came on over hours or days, if the confusion comes and goes, or if there is new weakness, facial droop or slurred speech. Go to hospital the same day. In older adults, sudden confusion often has a treatable cause, such as an infection, a side effect of medication, or dehydration.</p>
+<h2>10. Version notes</h2>
+<p><strong>Current version: Thai and English sets.</strong></p>
+<ul>
+<li>
+<p>The <strong>English set</strong> has the same 45 items, pictures and answer positions as the Thai set. For items 3, 4, 7, 8 and 10, the Thai saying or word was replaced with an English one that has the same meaning and the same kind of trap:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Thai</th>
+<th>English</th>
+<th>Trap it keeps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>เข้าเมืองตาหลิ่ว ต้องหลิ่วตาตาม</td>
+<td>When in Rome, do as the Romans do</td>
+<td>Same meaning</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ถี่ถ้วน (lure ถี่ &quot;frequent&quot;)</td>
+<td>thorough (lure &quot;through&quot;)</td>
+<td>A word that sounds alike</td>
+</tr>
+<tr>
+<td>7</td>
+<td>ผลีผลาม</td>
+<td>rash</td>
+<td>Same meaning</td>
+</tr>
+<tr>
+<td>8</td>
+<td>ขี่ช้างจับตั๊กแตน</td>
+<td>to use a sledgehammer to crack a nut</td>
+<td>Same meaning</td>
+</tr>
+<tr>
+<td>10</td>
+<td>ตระหนัก (lure ตระหนก)</td>
+<td>eminent (lure &quot;imminent&quot;)</td>
+<td>A word that looks alike</td>
+</tr>
+</tbody>
+</table>
+<p>Thai names in the story items became English names. Amounts are still in baht, so every number is the same as in Thai.</p>
+</li>
+<li>
+<p><strong>Both languages, item 9:</strong> two wrong options were replaced (now nest : bird and paw : dog). Each of the three wrong options now shows a different kind of relation, so none can be ruled out just because it matches another.</p>
+</li>
+</ul>
+<p><strong>Changes from the earlier Markdown draft (Thai):</strong></p>
+<ul>
+<li>
+<p><strong>Drawn graphics.</strong> All shapes, grids, arrows, the chart, the clock face, the houses and the icons are drawn graphics, not text symbols, so they print the same on any computer. The font (Sarabun) is bundled.</p>
+</li>
+<li>
+<p><strong>Part 3 changes:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Earlier draft</th>
+<th>Now</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>41 (×2 −2 series)</td>
+<td>Removed</td>
+</tr>
+<tr>
+<td>44 (factorial series)</td>
+<td>Removed</td>
+</tr>
+<tr>
+<td>45 (# operator)</td>
+<td>Now 41</td>
+</tr>
+<tr>
+<td>43 (&quot;cancel the shared shape&quot;)</td>
+<td>Now 44, redesigned with 2–4 shapes per cell</td>
+</tr>
+<tr>
+<td>—</td>
+<td>New 43: shape, fill and count grid</td>
+</tr>
+<tr>
+<td>—</td>
+<td>New 45: dot moves clockwise while the arrow turns anticlockwise</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Answer options rebalanced.</strong> In items 36 and 42–45, a test-wise person can no longer reach the answer by elimination, feature counting or &quot;no repeats&quot;. The best shortcut leaves a 1-in-2 to 1-in-3 guess.</p>
+</li>
+<li>
+<p><strong>Coding task.</strong> It now uses 6 clearly different symbols and 144 items, and the key is on the same page as the grid.</p>
+</li>
+</ul>
+</main>
+</body></html>

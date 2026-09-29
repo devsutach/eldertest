@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thinking and Reasoning Test</title><style>@font-face{font-family:'Sarabun';font-weight:400;font-style:normal;font-display:block;src:url(fonts/sarabun-thai-400-normal.woff2) format('woff2');unicode-range:U+0E01-0E5B,U+200C-200D,U+25CC}
+@font-face{font-family:'Sarabun';font-weight:700;font-style:normal;font-display:block;src:url(fonts/sarabun-thai-700-normal.woff2) format('woff2');unicode-range:U+0E01-0E5B,U+200C-200D,U+25CC}
+@font-face{font-family:'Sarabun';font-weight:400;font-style:normal;font-display:block;src:url(fonts/sarabun-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Sarabun';font-weight:700;font-style:normal;font-display:block;src:url(fonts/sarabun-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{--ink:#111;--muted:#555;--rule:#bbb;--soft:#f3f3f3;--paper:#fff;--desk:#e6e6e6}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Sarabun','Leelawadee UI','Tahoma',sans-serif;line-height:1.55}
+.sheet{width:100%;max-width:180mm;margin:0 auto}
+h1,h2,h3{line-height:1.25;margin:0 0 .5em}
+table{border-collapse:collapse}
+.toolbar{display:none}
+@media screen{
+  body{background:var(--desk)}
+  .sheet{background:var(--paper);max-width:210mm;padding:14mm 15mm;margin:0 auto 12mm;box-shadow:0 1px 6px rgba(0,0,0,.18)}
+  .toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;max-width:210mm;margin:0 auto;padding:12px 4px;
+    font-size:15px;color:#333;flex-wrap:wrap}
+  .toolbar a{color:#333}
+  .toolbar button{font:inherit;font-weight:700;padding:8px 18px;border:2px solid #111;background:#fff;border-radius:6px;cursor:pointer}
+  .toolbar button:hover{background:#111;color:#fff}
+  .pb{border-top:2px dashed #aaa;margin-top:10mm;padding-top:10mm}
+}
+@media screen and (max-width:760px){
+  .sheet{padding:16px;max-width:none}
+  .toolbar{padding:10px 16px}
+  svg{max-width:100%}
+}
+@media print{ .pb{break-before:page;padding-top:2mm} .toolbar{display:none} }
+
+@page{size:A4;margin:15mm}
+body{font-size:12pt}
+h1{font-size:22pt;margin-bottom:1mm}
+.sub{color:#555;margin-bottom:6mm}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:8mm}
+@media screen and (max-width:760px){.cols{grid-template-columns:1fr}}
+.cols h2{font-size:16pt;border-bottom:2px solid #111;padding-bottom:1mm}
+.files{display:grid;gap:3mm;margin:3mm 0}
+.files a{display:block;border:2px solid #111;border-radius:3mm;padding:3mm 4mm;color:#111;text-decoration:none}
+.files a:hover{background:#f3f3f3}
+.files b{font-size:12.5pt}
+.files span{display:block;color:#555;font-size:10.5pt}
+.warn{border:2px solid #111;padding:3mm 4mm;border-radius:2mm;background:#fff6d6;font-size:11pt}
+ol{padding-left:1.2em} ol li{margin:1mm 0;font-size:11pt}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><pattern id="stripe" patternUnits="userSpaceOnUse" width="8" height="8"><rect width="8" height="8" fill="#fff"/><path d="M-2,2 L2,-2 M0,8 L8,0 M6,10 L10,6" stroke="#111" stroke-width="2.4" stroke-linecap="square"/></pattern></defs></svg>
+<div class="toolbar"><span>ภาษาไทย / English</span><button onclick="window.print()">พิมพ์ (A4)</button></div>
+<main class="sheet"><h1>แบบทดสอบการคิดและการใช้เหตุผล<br>Thinking and Reasoning Test</h1><div class="sub">ภาษา · ตัวเลข · รูปแบบ · ความจำ · ความเร็ว &nbsp;/&nbsp; Language · Numbers · Patterns · Memory · Speed</div><div class="cols"><div lang="th"><h2>ภาษาไทย</h2><div class="files"><a href="th/1-test-booklet.html"><b>1 · แบบทดสอบ</b><span>พิมพ์คนละ 1 ชุด (22 หน้า A4)</span></a><a href="th/2-tester-guide.html"><b>2 · คู่มือผู้ดูแลและเฉลย</b><span>อ่านก่อน · เก็บเป็นความลับ</span></a><a href="th/3-record-form.html"><b>3 · แบบบันทึกคะแนน</b><span>พิมพ์คนละ 1 ชุด · มีเฉลย</span></a><a href="th/4-comparison-summary.html"><b>4 · ตารางสรุปผล</b><span>1 แผ่น A4 แนวนอน</span></a></div><p class="warn"><b>ก่อนเริ่ม:</b> อ่านคู่มือก่อน โดยเฉพาะข้อ 2 (ข้อจำกัด) และข้อ 8–9 (วิธีเทียบและอ่านผล) อย่าให้ผู้ทำแบบทดสอบเห็นไฟล์ 2–4</p><ol><li>เก็บโฟลเดอร์ <code>fonts</code> ไว้ที่เดิม</li><li>เปิดไฟล์ด้วย Chrome หรือ Edge แล้วกด Ctrl+P (Mac: ⌘P)</li><li>กระดาษ <b>A4</b> · Scale <b>100%</b> · Margins <b>Default</b> · ปิด “Headers and footers”</li><li>พิมพ์แบบทดสอบ<b>หน้าเดียว</b> (ไม่พิมพ์สองหน้า) เพื่อไม่ให้เห็นตารางจับเวลาก่อนเริ่ม และลองพิมพ์ข้อ 43 ดูว่าลายขีดแยกจากสีดำได้ชัด</li><li>หรือพิมพ์จากไฟล์ในโฟลเดอร์ <code>pdf/th</code></li></ol></div><div lang="en"><h2>English</h2><div class="files"><a href="en/1-test-booklet.html"><b>1 · Test booklet</b><span>Print one per person (22 A4 pages)</span></a><a href="en/2-tester-guide.html"><b>2 · Tester guide & answer key</b><span>Read first · keep private</span></a><a href="en/3-record-form.html"><b>3 · Record form</b><span>Print one per person · shows the key</span></a><a href="en/4-comparison-summary.html"><b>4 · Comparison summary</b><span>One A4 landscape sheet</span></a></div><p class="warn"><b>Before testing:</b> read the guide, especially §1 (which language), §2 (limits) and §8–9 (comparing and reading results). Keep files 2–4 away from test-takers.</p><ol><li>Keep the <code>fonts</code> folder where it is</li><li>Open a file in Chrome or Edge → Ctrl+P (Mac: ⌘P)</li><li>Paper <b>A4</b> · Scale <b>100%</b> · Margins <b>Default</b> · “Headers and footers” off</li><li>Print the booklet <b>single-sided</b>, so the timed grid isn't visible before “Start”. Test-print item 43 to check the hatched shapes look clearly different from the black ones</li><li>Or print the ready-made files in <code>pdf/en</code></li></ol></div></div></main>
+</body></html>
