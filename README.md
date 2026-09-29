@@ -15,9 +15,13 @@ What it covers:
 ## Use it
 
 1. Open **`package/index.html`** in Chrome or Edge.
-2. Pick a language: `th/` (ภาษาไทย) or `en/` (English).
-3. Read the tester guide first (`2-tester-guide.html`).
-4. Print on A4 at 100% scale with default margins:
+2. To print, the easiest way is **`package/print.html`** (the print center):
+   - Tick the documents or individual booklet parts you need, in either language.
+   - Press Print, and they come out together on A4.
+   - It shows how many pages each item takes, and the landscape summary sheet prints in landscape automatically.
+3. Or open a single document from a language folder: `th/` (ภาษาไทย) or `en/` (English).
+4. Read the tester guide first (`2-tester-guide.html`).
+5. Print on A4 at 100% scale with default margins:
    - Print the booklet **single-sided**, so the timed grid isn't seen early.
    - Ready-made PDFs are in `package/pdf/`.
 
@@ -39,9 +43,10 @@ Everything is generated from one source, `content.py`, so the Thai and English b
 ```bash
 pip install -r requirements.txt
 python -m playwright install chromium   # only needed for PDFs
-python build.py      # writes package/ (HTML for both languages + fonts)
+python build.py      # writes package/ (HTML for both languages, print center, fonts)
 python render.py     # writes package/pdf/ and pages.json
-python build.py      # second pass puts the page counts into the guides
+python pc_render.py  # measures each print-center item -> pc_pages.json
+python build.py      # second pass puts the page counts into the guides and print center
 ```
 
 | File | Role |
@@ -50,6 +55,8 @@ python build.py      # second pass puts the page counts into the guides
 | `figs.py` | All figures as inline SVG: shapes, grids, arrows, chart, clock, icons |
 | `build.py` | Builds the HTML pages and the A4 print CSS |
 | `render.py` | Renders the PDFs with headless Chromium |
+| `printcenter.py` | Builds `package/print.html`, one page that embeds every document so parts can be picked and printed together |
+| `pc_render.py` | Checks print-center page counts (each part alone, and whole booklets match the standalone PDFs) |
 | `templates/guide_*.md` | Tester guide text for each language (the key and tables are filled in at build time) |
 | `fonts/` | Sarabun (SIL Open Font License 1.1, see `fonts/OFL.txt`) |
 

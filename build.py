@@ -509,6 +509,10 @@ h1{font-size:22pt;margin-bottom:1mm}
 .files span{display:block;color:#555;font-size:10.5pt}
 .warn{border:2px solid #111;padding:3mm 4mm;border-radius:2mm;background:#fff6d6;font-size:11pt}
 ol{padding-left:1.2em} ol li{margin:1mm 0;font-size:11pt}
+.pc-link{display:block;margin:0 0 7mm;padding:4mm 5mm;border-radius:3mm;background:#111;color:#fff;text-decoration:none}
+.pc-link b{font-size:15pt;display:block}
+.pc-link span{font-size:11pt;opacity:.9}
+.pc-link:hover{background:#333}
 """
 
 IDX = {
@@ -544,6 +548,8 @@ def build_index():
                  "<ol>" + "".join(f"<li>{p}</li>" for p in x["print"]) + "</ol></div>")
     body = ('<h1>แบบทดสอบการคิดและการใช้เหตุผล<br>Thinking and Reasoning Test</h1>'
             '<div class="sub">ภาษา · ตัวเลข · รูปแบบ · ความจำ · ความเร็ว &nbsp;/&nbsp; Language · Numbers · Patterns · Memory · Speed</div>'
+            '<a class="pc-link" href="print.html"><b>🖨 เลือกพิมพ์ · Print center</b><span>ติ๊กเลือกเอกสารหรือเฉพาะบางส่วนของแบบทดสอบ แล้วพิมพ์ทีเดียว A4 · '
+            'Tick the documents or booklet parts you need and print them in one go on A4</span></a>'
             f'<div class="cols">{cols}</div>')
     return page("Thinking and Reasoning Test", body, INDEX_CSS, "ภาษาไทย / English", "th", prefix="", home=False)
 
@@ -563,3 +569,5 @@ if __name__ == "__main__":
             with open(path, "w", encoding="utf-8") as fh:
                 fh.write(fn(lang))
             print("wrote", path, os.path.getsize(path) // 1024, "KB")
+    import printcenter  # noqa: E402  (builds package/print.html from the same content)
+    printcenter.main()
