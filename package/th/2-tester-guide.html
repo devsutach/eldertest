@@ -19,7 +19,7 @@ table{border-collapse:collapse}
   .toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;max-width:210mm;margin:0 auto;padding:12px 4px;
     font-size:15px;color:#333;flex-wrap:wrap}
   .toolbar a{color:#333}
-  .toolbar button{font:inherit;font-weight:700;padding:8px 18px;border:2px solid #111;background:#fff;border-radius:6px;cursor:pointer}
+  .toolbar button{font:inherit;font-weight:700;padding:8px 18px;border:2px solid #111;background:#fff;border-radius:6px;cursor:pointer;margin-left:6px}
   .toolbar button:hover{background:#111;color:#fff}
   .pb{border-top:2px dashed #aaa;margin-top:10mm;padding-top:10mm}
 }
@@ -48,7 +48,7 @@ code{font-size:10pt;background:var(--soft);padding:0 3px;border-radius:3px}
 .warn{border:2px solid #111;padding:2.5mm 4mm;border-radius:2mm;background:#fff6d6}
 </style></head>
 <body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><pattern id="stripe" patternUnits="userSpaceOnUse" width="8" height="8"><rect width="8" height="8" fill="#fff"/><path d="M-2,2 L2,-2 M0,8 L8,0 M6,10 L10,6" stroke="#111" stroke-width="2.4" stroke-linecap="square"/></pattern></defs></svg>
-<div class="toolbar"><span><a href="../index.html">← หน้าแรก</a> · คู่มือผู้ดูแล · เก็บเป็นความลับ · A4</span><button onclick="window.print()">พิมพ์ (A4)</button></div>
+<div class="toolbar"><span><a href="../index.html">← หน้าแรก</a> · คู่มือผู้ดูแล · เก็บเป็นความลับ · A4</span><span><button onclick="window.print()">พิมพ์ (A4)</button></span></div>
 <main class="sheet"><h1>คู่มือผู้ดูแลการทดสอบและเฉลย</h1>
 <p class="warn"><b>เก็บคู่มือนี้เป็นความลับ</b> อย่าให้ผู้ทำแบบทดสอบเห็นคู่มือนี้หรือแบบบันทึกคะแนน เพราะทั้งสองมีเฉลยอยู่</p>
 <h2>1. ในชุดนี้มีอะไรบ้าง</h2>
@@ -86,7 +86,7 @@ code{font-size:10pt;background:var(--soft);padding:0 3px;border-radius:3px}
 <tbody>
 <tr>
 <td><code>1-test-booklet.html</code></td>
-<td>คนละ 1 ชุด (ประมาณ 22 หน้า A4)</td>
+<td>คนละ 1 ชุด (ประมาณ 13 หน้า A4)</td>
 <td>ผู้ทำแบบทดสอบ</td>
 </tr>
 <tr>
@@ -111,6 +111,7 @@ code{font-size:10pt;background:var(--soft);padding:0 3px;border-radius:3px}
 <li>เปิดไฟล์ด้วย Chrome หรือ Edge แล้วกด Ctrl+P (บน Mac กด ⌘P)</li>
 <li>เลือกกระดาษ <strong>A4</strong> ขนาด (Scale) <strong>100%</strong> และระยะขอบ (Margins) <strong>Default</strong></li>
 <li>พิมพ์แบบทดสอบ<strong>หน้าเดียว</strong> (ไม่พิมพ์สองหน้า) เพื่อไม่ให้ผู้ทำเห็นตารางจับเวลาก่อนบอก &quot;เริ่ม&quot;</li>
+<li><strong>ขนาดตัวอักษร:</strong> แบบทดสอบพิมพ์ตัวอักษรขนาดปกติ (ประมาณ 13 หน้า) เป็นค่าเริ่มต้น ถ้าคุณแม่อ่านตัวเล็กลำบาก ให้กดปุ่ม <strong>ตัวอักษรใหญ่</strong> ในหน้าแบบทดสอบ หรือเลือกขนาดใน <code>print.html</code> หรือพิมพ์ไฟล์ <code>pdf/…/1-test-booklet-large-print.pdf</code> ฉบับตัวใหญ่มีประมาณ 19 หน้า ข้อสอบ รูปภาพ และตารางจับเวลาเหมือนเดิมทุกอย่าง คะแนนจึงยังเทียบกันได้ ให้จดไว้ในแบบบันทึกว่าใช้ฉบับตัวใหญ่</li>
 <li>ลองพิมพ์ข้อ 43 ดูก่อน 1 ครั้ง ว่ารูปลายขีดดูต่างจากรูปสีดำชัดเจน</li>
 <li>ฟอนต์อยู่ในโฟลเดอร์ <code>fonts</code> ห้ามย้ายโฟลเดอร์นี้ออก</li>
 <li>ถ้าอยากพิมพ์จาก PDF มีไฟล์ PDF พร้อมพิมพ์อยู่ในโฟลเดอร์ <code>pdf</code></li>

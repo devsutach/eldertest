@@ -23,6 +23,7 @@ What it covers:
 4. Read the tester guide first (`2-tester-guide.html`).
 5. Print on A4 at 100% scale with default margins:
    - Print the booklet **single-sided**, so the timed grid isn't seen early.
+   - The booklet is 13 pages in normal type. A **large-print** option (19 pages) is available from the booklet's toolbar button, the print center, or `pdf/*/1-test-booklet-large-print.pdf`.
    - Ready-made PDFs are in `package/pdf/`.
 
 Each language set has the same four files:

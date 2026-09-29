@@ -26,6 +26,14 @@ with sync_playwright() as p:
             n = int(re.search(r"Pages:\s+(\d+)", info).group(1))
             pages[f"{lang}/{doc}"] = n
             print(f"{lang}/{doc}: {n} pages, {fonts} font faces loaded")
+            if doc == "1-test-booklet":  # large-print edition of the booklet
+                pg.evaluate("document.body.classList.add('large')")
+                out = os.path.join(PKG, "pdf", lang, doc + "-large-print.pdf")
+                pg.pdf(path=out, prefer_css_page_size=True, print_background=True)
+                info = subprocess.run(["pdfinfo", out], capture_output=True, text=True).stdout
+                n = int(re.search(r"Pages:\s+(\d+)", info).group(1))
+                pages[f"{lang}/{doc}-large"] = n
+                print(f"{lang}/{doc} (large print): {n} pages")
     browser.close()
 
 json.dump(pages, open("pages.json", "w"), indent=1)

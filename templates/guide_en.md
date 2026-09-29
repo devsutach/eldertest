@@ -24,6 +24,7 @@ Each set has four files:
 - Open a file in Chrome or Edge and press Ctrl+P (⌘P on a Mac).
 - Choose Paper **A4**, Scale **100%** and Margins **Default**.
 - Print the booklet **single-sided**, so the timed coding grid can't be seen before you say "Start".
+- **Text size:** the booklet prints in normal type ({{BOOKLET_PAGES}} pages) by default. If small text is hard for your mom to read, use the **Large print** button on the booklet or the text-size choice in `print.html`, or print `pdf/…/1-test-booklet-large-print.pdf`. Large print is about 19 pages. The questions and pictures stay the same, and so does the timed grid, so scores stay comparable. Note on her record form that she used large print.
 - Test-print item 43 once, to check that the hatched shapes look clearly different from the black ones.
 - The font is bundled in the `fonts` folder, so keep that folder where it is.
 - Ready-made PDFs are in the `pdf` folder.

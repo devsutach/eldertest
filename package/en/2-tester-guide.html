@@ -19,7 +19,7 @@ table{border-collapse:collapse}
   .toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;max-width:210mm;margin:0 auto;padding:12px 4px;
     font-size:15px;color:#333;flex-wrap:wrap}
   .toolbar a{color:#333}
-  .toolbar button{font:inherit;font-weight:700;padding:8px 18px;border:2px solid #111;background:#fff;border-radius:6px;cursor:pointer}
+  .toolbar button{font:inherit;font-weight:700;padding:8px 18px;border:2px solid #111;background:#fff;border-radius:6px;cursor:pointer;margin-left:6px}
   .toolbar button:hover{background:#111;color:#fff}
   .pb{border-top:2px dashed #aaa;margin-top:10mm;padding-top:10mm}
 }
@@ -48,7 +48,7 @@ code{font-size:10pt;background:var(--soft);padding:0 3px;border-radius:3px}
 .warn{border:2px solid #111;padding:2.5mm 4mm;border-radius:2mm;background:#fff6d6}
 </style></head>
 <body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><pattern id="stripe" patternUnits="userSpaceOnUse" width="8" height="8"><rect width="8" height="8" fill="#fff"/><path d="M-2,2 L2,-2 M0,8 L8,0 M6,10 L10,6" stroke="#111" stroke-width="2.4" stroke-linecap="square"/></pattern></defs></svg>
-<div class="toolbar"><span><a href="../index.html">← Home</a> · Tester guide · keep private · A4</span><button onclick="window.print()">Print (A4)</button></div>
+<div class="toolbar"><span><a href="../index.html">← Home</a> · Tester guide · keep private · A4</span><span><button onclick="window.print()">Print (A4)</button></span></div>
 <main class="sheet"><h1>Tester Guide &amp; Answer Key</h1>
 <p class="warn"><b>Keep this guide private.</b> Nobody who takes the test should see this guide or the record form, because both show the answers.</p>
 <h2>1. What the package contains</h2>
@@ -86,7 +86,7 @@ code{font-size:10pt;background:var(--soft);padding:0 3px;border-radius:3px}
 <tbody>
 <tr>
 <td><code>1-test-booklet.html</code></td>
-<td>One per person tested (22 A4 pages)</td>
+<td>One per person tested (13 A4 pages)</td>
 <td>The test-taker</td>
 </tr>
 <tr>
@@ -111,6 +111,7 @@ code{font-size:10pt;background:var(--soft);padding:0 3px;border-radius:3px}
 <li>Open a file in Chrome or Edge and press Ctrl+P (⌘P on a Mac).</li>
 <li>Choose Paper <strong>A4</strong>, Scale <strong>100%</strong> and Margins <strong>Default</strong>.</li>
 <li>Print the booklet <strong>single-sided</strong>, so the timed coding grid can't be seen before you say &quot;Start&quot;.</li>
+<li><strong>Text size:</strong> the booklet prints in normal type (13 pages) by default. If small text is hard for your mom to read, use the <strong>Large print</strong> button on the booklet or the text-size choice in <code>print.html</code>, or print <code>pdf/…/1-test-booklet-large-print.pdf</code>. Large print is about 19 pages. The questions and pictures stay the same, and so does the timed grid, so scores stay comparable. Note on her record form that she used large print.</li>
 <li>Test-print item 43 once, to check that the hatched shapes look clearly different from the black ones.</li>
 <li>The font is bundled in the <code>fonts</code> folder, so keep that folder where it is.</li>
 <li>Ready-made PDFs are in the <code>pdf</code> folder.</li>

@@ -56,7 +56,7 @@ def scope_css(css, sc):
 # --------------------------------------------------------------------------- collect bodies
 def collect():
     real_page = build.page
-    build.page = lambda title, body, css, note, lang, prefix="../", home=True: body
+    build.page = lambda title, body, css, note, lang, **kw: body
     try:
         blocks = []
         for lang in build.LANGS:
@@ -113,6 +113,7 @@ h1,h2,h3{line-height:1.25;margin:0 0 .5em}
 .pc-panel .sub.warn{color:#8a4b00}
 .pc-panel label{display:flex;gap:8px;align-items:center;padding:3px 0;cursor:pointer}
 .pc-panel label input{width:18px;height:18px;flex:none}
+.pc-large .d-booklet{--k:1.3;--fk:1}
 .pc-panel label .pp{margin-left:auto;color:var(--muted);font-size:12.5px;white-space:nowrap}
 .pc-panel .mini{font:inherit;font-size:13px;padding:2px 10px;border:1px solid #999;background:#fff;border-radius:5px;cursor:pointer;margin:2px 0 0}
 .pc-actions{display:flex;gap:8px;margin:14px 0 8px;flex-wrap:wrap}
@@ -138,7 +139,9 @@ h1,h2,h3{line-height:1.25;margin:0 0 .5em}
   .pc-wrap{display:block;padding:0}
   .blk.on{display:block;break-before:page;margin:0;padding:0;width:auto;box-shadow:none}
   .blk.on section,.blk.on .pb{break-before:page;padding-top:2mm}
+  .blk.on section.practice{break-before:auto}
   .blk.first,.blk.first>:first-child{break-before:auto!important}
+  .blk.flow,.blk.flow>section:first-child{break-before:auto!important}
   .blk .toolbar{display:none}
 }
 """
@@ -167,7 +170,7 @@ def main():
         def row(key):
             k = f"{lang}-{key}"
             pp = PC_PAGES.get(k)
-            pp_txt = f'<span class="pp">{pp} {u["pages"]}</span>' if pp else ""
+            pp_txt = f'<span class="pp" data-u="{u["pages"]}">{pp} {u["pages"]}</span>' if pp else ""
             return f'<label lang="{lang}"><input type="checkbox" data-k="{k}"> <span>{L[key]}</span>{pp_txt}</label>'
 
         panel += (f'<h2 lang="{lang}">{u["h"]}</h2><div class="sub">{u["booklet"]}</div>'
@@ -190,6 +193,9 @@ def main():
 <div class="pc-wrap">
 <aside class="pc-panel">
 {panel}
+<h2>ขนาดตัวอักษร · Text size</h2>
+<label><input type="radio" name="pc-size" value="normal" checked> <span>ปกติ · Normal</span></label>
+<label><input type="radio" name="pc-size" value="large"> <span>ใหญ่ (สำหรับผู้สูงอายุ) · Large print</span></label>
 <div class="pc-actions"><button class="primary" id="pc-print">🖨 พิมพ์ที่เลือก / Print selected</button><button id="pc-clear">ล้าง / Clear</button></div>
 <div class="pc-count" id="pc-count"></div>
 <ul class="pc-hint">
@@ -209,20 +215,40 @@ def main():
   var blocks=[].slice.call(document.querySelectorAll('.blk'));
   var PAGES={json.dumps(PC_PAGES)};
   function chosen(){{return boxes.filter(function(b){{return b.checked;}}).map(function(b){{return b.dataset.k;}});}}
+  var sizes=[].slice.call(document.querySelectorAll('input[name=pc-size]'));
+  function large(){{return sizes.some(function(r){{return r.checked&&r.value==='large';}});}}
   function sync(){{
-    var on=chosen(), first=true, pages=0;
+    var on=chosen(), first=true, pages=0, prev=null, L=large();
+    document.body.classList.toggle('pc-large',L);
     blocks.forEach(function(el){{
-      var sel=on.indexOf(el.dataset.k)>=0;
+      var k=el.dataset.k, sel=on.indexOf(k)>=0;
       el.classList.toggle('on',sel);
       el.classList.toggle('first',sel&&first);
-      if(sel){{first=false; pages+=PAGES[el.dataset.k]||0;}}
+      // booklet parts carry straight on from the part before them, exactly like the standalone booklet
+      var m=k.match(/^(th|en)-(practice|p1|p2|p3|p4)$/);
+      var before={{practice:'cover',p1:'practice',p2:'p1',p3:'p2',p4:'p3'}};
+      el.classList.toggle('flow',!!(sel&&m&&prev===m[1]+'-'+before[m[2]]));
+      if(sel){{first=false; prev=k; pages+=(L&&PAGES['L:'+k])||PAGES[k]||0;}}
+    }});
+    ['th','en'].forEach(function(lg){{  // a whole booklet is shorter than its parts added up, because parts share pages
+      var parts=['cover','practice','p1','p2','p3','p4'].map(function(x){{return lg+'-'+x;}});
+      if(parts.every(function(x){{return on.indexOf(x)>=0;}})){{
+        var sum=parts.reduce(function(t,x){{return t+((L&&PAGES['L:'+x])||PAGES[x]||0);}},0);
+        var whole=(L&&PAGES['L:'+lg+'-booklet'])||PAGES[lg+'-booklet'];
+        if(whole)pages+=whole-sum;
+      }}
+    }});
+    boxes.forEach(function(b){{
+      var s=b.parentNode.querySelector('.pp'); if(!s)return;
+      var n=(L&&PAGES['L:'+b.dataset.k])||PAGES[b.dataset.k]; if(n)s.textContent=n+' '+s.dataset.u;
     }});
     document.getElementById('pc-empty').style.display=on.length?'none':'block';
     document.getElementById('pc-count').textContent=on.length?
       ('เลือก '+on.length+' รายการ'+(pages?' · ประมาณ '+pages+' หน้า':'')+' · '+on.length+' selected'+(pages?' · about '+pages+' pages':'')):'';
-    try{{localStorage.setItem('pc-sel',JSON.stringify(on));}}catch(e){{}}
+    try{{localStorage.setItem('pc-sel',JSON.stringify(on.concat(L?['large']:[])));}}catch(e){{}}
   }}
   boxes.forEach(function(b){{b.addEventListener('change',sync);}});
+  sizes.forEach(function(r){{r.addEventListener('change',sync);}});
   [].slice.call(document.querySelectorAll('[data-preset]')).forEach(function(btn){{
     btn.addEventListener('click',function(){{
       var lang=btn.dataset.preset.split('-')[0];
@@ -242,6 +268,7 @@ def main():
   var q=(location.hash||'').replace('#','');
   var init=q?q.split(','):(saved||['th-cover','th-practice','th-p1','th-p2','th-p3','th-p4']);
   boxes.forEach(function(b){{b.checked=init.indexOf(b.dataset.k)>=0;}});
+  if(init.indexOf('large')>=0) sizes.forEach(function(r){{r.checked=(r.value==='large');}});
   sync();
 }})();
 </script>

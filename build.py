@@ -51,7 +51,7 @@ table{border-collapse:collapse}
   .toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;max-width:210mm;margin:0 auto;padding:12px 4px;
     font-size:15px;color:#333;flex-wrap:wrap}
   .toolbar a{color:#333}
-  .toolbar button{font:inherit;font-weight:700;padding:8px 18px;border:2px solid #111;background:#fff;border-radius:6px;cursor:pointer}
+  .toolbar button{font:inherit;font-weight:700;padding:8px 18px;border:2px solid #111;background:#fff;border-radius:6px;cursor:pointer;margin-left:6px}
   .toolbar button:hover{background:#111;color:#fff}
   .pb{border-top:2px dashed #aaa;margin-top:10mm;padding-top:10mm}
 }
@@ -84,6 +84,8 @@ S = {
         code_turn="เมื่อพร้อมแล้ว พลิกไปหน้าถัดไป แล้วรอผู้ดูแลบอก <b>“เริ่ม”</b>",
         code_start=("ส่วนที่ 4", "ความเร็วในการจับคู่ (จับเวลา)", "90 วินาที"), end="จบแบบทดสอบ ขอบคุณที่ช่วยทำ",
         tb_booklet="แบบทดสอบ (สำหรับผู้ทำแบบทดสอบ) · พิมพ์ขนาด A4 · Scale 100%",
+        size_large="ตัวอักษรใหญ่", size_normal="ตัวอักษรปกติ",
+        stop="หยุด · รอผู้ดูแลก่อนทำส่วนต่อไป",
     ),
     "en": dict(
         title="Thinking and Reasoning Test", sub="Language · Numbers · Patterns · Speed", foot="Thinking and Reasoning Test  ·  page ",
@@ -106,71 +108,78 @@ S = {
         code_turn="When you are ready, turn to the next page and wait for the tester to say <b>“Start”</b>.",
         code_start=("Part 4", "Matching speed (timed)", "90 seconds"), end="End of the test. Thank you!",
         tb_booklet="Test booklet (for the person taking the test) · Print on A4 · Scale 100%",
+        size_large="Large print", size_normal="Normal print",
+        stop="Stop · wait for the tester before going on",
     ),
 }
 
 BOOKLET_CSS = """
-@page{size:A4;margin:13mm 14mm 15mm;
-  @bottom-center{content:"__FOOT__" counter(page);font-family:Sarabun,sans-serif;font-size:10pt;color:#666}}
-body{font-size:16.5pt}
-.cover h1{font-size:28pt;margin:4mm 0 2mm}
-.cover .sub{font-size:15pt;color:var(--muted);margin-bottom:6mm}
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:4mm 8mm;margin:0 0 7mm}
-.fields div{border-bottom:1.5px solid #111;padding:1mm 0;font-size:15pt}
+@page{size:A4;margin:12mm 13mm 14mm;
+  @bottom-center{content:"__FOOT__" counter(page);font-family:Sarabun,sans-serif;font-size:9pt;color:#666}}
+body{--k:1;--fk:.7;font-size:calc(12.5pt*var(--k))}
+body.large{--k:1.3;--fk:1}
+.cover h1{font-size:calc(21pt*var(--k));margin:2mm 0 1mm}
+.cover .sub{font-size:calc(11pt*var(--k));color:var(--muted);margin-bottom:5mm}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:3mm 8mm;margin:0 0 5mm}
+.fields div{border-bottom:1.3px solid #111;padding:.8mm 0;font-size:calc(11.5pt*var(--k))}
 .fields .wide{grid-column:1/-1}
-.instr{border:2px solid #111;border-radius:3mm;padding:4mm 6mm;margin-bottom:6mm;font-size:15.5pt}
-.instr h2{font-size:19pt}
+.instr{border:1.6px solid #111;border-radius:2.5mm;padding:3mm 5mm;margin-bottom:4mm;font-size:calc(12pt*var(--k))}
+.instr h2{font-size:calc(14pt*var(--k));margin-bottom:1mm}
 .instr ol{margin:0;padding-left:1.3em}
-.instr li{margin:.2em 0}
-.parts{width:100%;font-size:14.5pt}
-.parts td{padding:1.5mm 2mm;border-bottom:1px solid var(--rule)}
-.sechead{border-bottom:3px solid #111;padding-bottom:2mm;margin-bottom:7mm;display:flex;justify-content:space-between;align-items:baseline;gap:4mm}
-.sechead h2{font-size:21pt;margin:0}
-.sechead span{font-size:13pt;color:var(--muted)}
-.item{break-inside:avoid;margin:0 0 6.5mm;padding-top:2.5mm}
-.stem{margin-bottom:2.5mm}
+.instr li{margin:.15em 0}
+.parts{width:100%;font-size:calc(11pt*var(--k));margin-bottom:6mm}
+.parts td{padding:1mm 2mm;border-bottom:1px solid var(--rule)}
+.sechead{border-bottom:2.5px solid #111;padding-bottom:1.5mm;margin-bottom:4mm;display:flex;justify-content:space-between;align-items:baseline;gap:4mm}
+.sechead h2{font-size:calc(15.5pt*var(--k));margin:0}
+.sechead span{font-size:calc(10pt*var(--k));color:var(--muted)}
+.item{break-inside:avoid;margin:0 0 calc(3.5mm*var(--k));padding-top:2mm}
+.stem{margin-bottom:1.2mm}
 .num{font-weight:700;margin-right:.35em;white-space:nowrap}
-.hint{font-size:13.5pt;color:var(--muted)}
-.lead{font-weight:700;margin-bottom:2mm}
-blockquote{margin:0 0 4mm;padding:3mm 5mm;border-left:5px solid #111;background:var(--soft);font-size:15.5pt}
-.facts{margin:1.5mm 0 2mm 4mm;padding:2mm 5mm;border:1.5px solid var(--rule);border-radius:2mm;width:fit-content;max-width:100%}
-.fig{margin:2mm 0 4mm 6mm}
-.series{font-size:22pt;font-weight:700;letter-spacing:.02em;margin:1mm 0 3mm 6mm}
-.figcap{display:flex;align-items:center;gap:5mm}
-.figcap span{font-size:12.5pt;color:var(--muted)}
-.datafig{display:flex;gap:8mm;align-items:flex-end;margin:2mm 0 4mm;flex-wrap:wrap}
-table.data{font-size:15pt}
+.hint{font-size:calc(10.5pt*var(--k));color:var(--muted)}
+.lead{font-weight:700;margin-bottom:1.5mm}
+blockquote{margin:0 0 3mm;padding:2mm 4mm;border-left:4px solid #111;background:var(--soft);font-size:calc(12pt*var(--k))}
+.facts{margin:1mm 0 1.5mm 4mm;padding:1.5mm 4mm;border:1.3px solid var(--rule);border-radius:2mm;width:fit-content;max-width:100%}
+.fig{margin:1.5mm 0 2.5mm 5mm}
+.series{font-size:calc(16pt*var(--k));font-weight:700;letter-spacing:.02em;margin:.5mm 0 2mm 5mm}
+.figcap{display:flex;align-items:center;gap:4mm}
+.figcap span{font-size:calc(9.5pt*var(--k));color:var(--muted)}
+.datafig{display:flex;gap:6mm;align-items:flex-end;margin:1.5mm 0 3mm;flex-wrap:wrap}
+table.data{font-size:calc(11.5pt*var(--k))}
 table.data caption{font-weight:700;text-align:left;padding-bottom:1mm;caption-side:top;white-space:nowrap}
 .grp{break-inside:avoid}
-table.data th,table.data td{border:1.5px solid #111;padding:1mm 5mm;text-align:center}
+table.data th,table.data td{border:1.3px solid #111;padding:.6mm 4mm;text-align:center}
 table.data th{background:var(--soft)}
-table.op{margin:1mm 0 3mm 6mm;font-size:17pt}
-ol.opts{list-style:none;margin:0;padding:0 0 0 6mm}
-ol.opts li{display:flex;gap:3mm;align-items:baseline;margin:1.4mm 0;min-width:0}
+table.op{margin:1mm 0 2mm 5mm;font-size:calc(13pt*var(--k))}
+ol.opts{list-style:none;margin:0;padding:0 0 0 5mm}
+ol.opts li{display:flex;gap:2.5mm;align-items:baseline;margin:.6mm 0;min-width:0}
 ol.opts li span:last-child{min-width:0;overflow-wrap:anywhere}
 .let{font-weight:700;min-width:1.4em}
-ol.opts.c2{display:grid;grid-template-columns:1fr 1fr;column-gap:8mm}
-ol.opts.c4{display:grid;grid-template-columns:repeat(4,1fr);column-gap:6mm}
-.popts{display:grid;gap:3.5mm;margin:1mm 0 0 6mm}
+ol.opts.c2{display:grid;grid-template-columns:1fr 1fr;column-gap:7mm}
+ol.opts.c4{display:grid;grid-template-columns:repeat(4,1fr);column-gap:5mm}
+.popts{display:grid;gap:2.5mm;margin:1mm 0 0 5mm}
 .popts.c4{grid-template-columns:repeat(4,1fr)}
 .popts.c2{grid-template-columns:1fr 1fr}
-.popt{border:1.5px solid var(--rule);border-radius:2.5mm;padding:2mm;display:flex;flex-direction:column;align-items:center;gap:1mm}
-.popt .let{font-size:17pt}
+.popt{border:1.3px solid var(--rule);border-radius:2mm;padding:1.5mm;display:flex;flex-direction:column;align-items:center;gap:.5mm}
+.popt .let{font-size:calc(12.5pt*var(--k))}
 .popt svg{max-width:100%}
-.iconlab{font-size:14pt}
+.iconlab{font-size:calc(10.5pt*var(--k))}
 .code-key{margin:2mm 0 5mm}
 .endnote{text-align:center;font-weight:700;margin-top:4mm}
+.stopline{text-align:center;font-weight:700;margin:2mm 0 6mm;padding:1.2mm;border-top:1.3px dashed #888;border-bottom:1.3px dashed #888;
+  font-size:calc(11pt*var(--k));break-before:avoid}
+section.flow{padding-top:2mm}
+.pc-sizebtn{margin-left:8px}
 @media screen and (max-width:760px){ol.opts.c2{grid-template-columns:1fr} .popts.c2{grid-template-columns:1fr} ol.opts{padding-left:0} .fig,.popts{margin-left:0}}
 """
 
 
-def page(title, body, css, note, lang, prefix="../", home=True):
+def page(title, body, css, note, lang, prefix="../", home=True, extra=""):
     home_link = f'<a href="{prefix}index.html">{S[lang]["home"]}</a> · ' if home else ""
     return f"""<!doctype html>
 <html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><style>{font_css(prefix)}{BASE_CSS}{css}</style></head>
 <body>{DEFS}
-<div class="toolbar"><span>{home_link}{note}</span><button onclick="window.print()">{S[lang]["print"]}</button></div>
+<div class="toolbar"><span>{home_link}{note}</span><span>{extra}<button onclick="window.print()">{S[lang]["print"]}</button></span></div>
 <main class="sheet">{body}</main>
 </body></html>"""
 
@@ -179,7 +188,7 @@ def page(title, body, css, note, lang, prefix="../", home=True):
 def opts_html(it, LET):
     if it["kind"] == "text":
         longest = max(len(o) for o in it["opts"])
-        cls = "c4" if longest <= 7 else ("c2" if longest <= 18 else "")
+        cls = "c4" if longest <= 12 else ("c2" if longest <= 34 else "")
         lis = "".join(f'<li><span class="let">{LET[i]}.</span><span>{o}</span></li>' for i, o in enumerate(it["opts"]))
         return f'<ol class="opts {cls}">{lis}</ol>'
     cells = "".join(f'<div class="popt">{o}<div class="let">{LET[i]}.</div></div>' for i, o in enumerate(it["opts"]))
@@ -205,7 +214,7 @@ def code_key_svg(mm=118):
         x = i * W
         body += cell_frame(x + 1, 1, W - 2, 64) + shape(k, x + W / 2, 33, 17)
         body += cell_frame(x + 1, 65, W - 2, 44) + text(x + W / 2, 98, str(i + 1), size=30, weight=700)
-    return svg(6 * W, 110, body, mm)
+    return svg(6 * W, 110, body, mm, scale=False)
 
 
 SYM_H, BOX_H, ROW_GAP, CELL_W = 38, 44, 8, 50
@@ -226,13 +235,13 @@ def write_cells(digits, y0=0, prefill=None):
 
 def code_practice_svg(mm=100):
     d = C.CODE_PRACTICE
-    return svg(len(d) * CELL_W, SYM_H + BOX_H, write_cells(d, prefill=d[0]), mm)
+    return svg(len(d) * CELL_W, SYM_H + BOX_H, write_cells(d, prefill=d[0]), mm, scale=False)
 
 
 def code_grid_svg(mm=156):
     body = "".join(write_cells(row, r * (SYM_H + BOX_H + ROW_GAP)) for r, row in enumerate(C.CODE_ROWS))
     n = len(C.CODE_ROWS)
-    return svg(12 * CELL_W, n * (SYM_H + BOX_H + ROW_GAP) - ROW_GAP, body, mm)
+    return svg(12 * CELL_W, n * (SYM_H + BOX_H + ROW_GAP) - ROW_GAP, body, mm, scale=False)
 
 
 def items_html(items, lang, LET):
@@ -261,12 +270,14 @@ def build_booklet(lang):
              f'<div class="fields"><div class="wide">{f[0]}</div><div>{f[1]}</div><div>{f[2]}</div><div class="wide">{f[3]}</div></div>'
              f'<div class="instr"><h2>{s["instr_h"]}</h2><ol>' + "".join(f"<li>{x}</li>" for x in s["instr"]) + "</ol></div>"
              f'<table class="parts">{parts_rows}</table></section>')
-    practice = (f'<section class="pb"><div class="sechead"><h2>{s["practice_h"][0]}</h2><span>{s["practice_h"][1]}</span></div>'
-                + "".join(item_html(it, lang, LET) for it in D["PRACTICE"]) + "</section>")
-    secs = "".join(f'<section class="pb"><div class="sechead"><h2>{tag} &nbsp;{name}</h2><span>{rng}</span></div>'
-                   + items_html(items, lang, LET) + "</section>" for tag, name, rng, items in D["SECTIONS"])
+    practice = (f'<section class="practice"><div class="sechead" style="margin-top:2mm"><h2>{s["practice_h"][0]}</h2><span>{s["practice_h"][1]}</span></div>'
+                + "".join(item_html(it, lang, LET) for it in D["PRACTICE"]) + f'<div class="stopline">{s["stop"]}</div></section>')
+    # Parts carry straight on from each other (with a stop line between them) to save paper.
+    secs = "".join(f'<section class="flow"><div class="sechead"><h2>{tag} &nbsp;{name}</h2><span>{rng}</span></div>'
+                   + items_html(items, lang, LET) + f'<div class="stopline">{s["stop"]}</div></section>'
+                   for i, (tag, name, rng, items) in enumerate(D["SECTIONS"]))
     p4, st = s["part4"], s["code_start"]
-    code = (f'<section class="pb"><div class="sechead"><h2>{p4[0]} &nbsp;{p4[1]}</h2><span>{p4[2]}</span></div>'
+    code = (f'<section class="flow"><div class="sechead"><h2>{p4[0]} &nbsp;{p4[1]}</h2><span>{p4[2]}</span></div>'
             f'<p>{s["code_how"]}</p><div class="code-key"><b>{s["code_key"]}</b>{code_key_svg()}</div>'
             f'<p style="margin:0 0 1mm">{s["code_prac"]}</p>{code_practice_svg()}'
             f'<p style="margin:8mm 0 0">{s["code_turn"]}</p></section>'
@@ -274,7 +285,10 @@ def build_booklet(lang):
             f'<div class="code-key" style="margin:0 0 3mm">{code_key_svg(mm=78)}</div>{code_grid_svg()}'
             f'<div class="endnote">{s["end"]}</div></section>')
     css = BOOKLET_CSS.replace("__FOOT__", s["foot"])
-    return page(s["title"], cover + practice + secs + code, css, s["tb_booklet"], lang)
+    size_btn = ('<button class="pc-sizebtn" onclick="document.body.classList.toggle(\'large\');'
+                'this.textContent=document.body.classList.contains(\'large\')?\'{0}\':\'{1}\'">{1}</button> ').format(
+                    s["size_normal"], s["size_large"])
+    return page(s["title"], cover + practice + secs + code, css, s["tb_booklet"], lang, extra=size_btn)
 
 
 # ------------------------------------------------------------------ guide

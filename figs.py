@@ -105,9 +105,11 @@ def inline_shape(kind):
             f'{shape(kind, 20, 21, 15)}</svg>')
 
 
-def svg(w, h, body, width_mm, label=""):
+def svg(w, h, body, width_mm, label="", scale=True):
+    """scale=True: width follows the booklet's figure scale (--fk), so normal and large print both fit."""
     aria = f' role="img" aria-label="{label}"' if label else ' aria-hidden="true"'
-    return (f'<svg viewBox="0 0 {w} {h}" style="width:{width_mm}mm;height:auto;display:block" '
+    width = f"calc({width_mm}mm*var(--fk,1))" if scale else f"{width_mm}mm"
+    return (f'<svg viewBox="0 0 {w} {h}" style="width:{width};height:auto;display:block" '
             f'xmlns="http://www.w3.org/2000/svg"{aria}>{body}</svg>')
 
 
